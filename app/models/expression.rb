@@ -1,0 +1,2 @@
+class Expression < ApplicationRecord
+end
