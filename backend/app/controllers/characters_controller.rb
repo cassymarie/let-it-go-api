@@ -1,8 +1,10 @@
 class CharactersController < ApplicationController
     def index
-        render json: "Character: Index Route"
+        characters = Character.all
+        render json: characters
     end
     def show
-        render json: "Character: Show Route"
+        character = Character.find(params[:id])
+        render json: character
     end
 end
