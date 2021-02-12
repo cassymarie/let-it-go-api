@@ -31,16 +31,13 @@ function getCharacters(){
     fetch(`${base_url}characters`)
     .then(resp => resp.json())
     .then(json => {
-        json.forEach(char => {
-            const c = new Avatar(char)
-            c.attachToSelectionList()
-            // let addChar = document.createElement('div')
-            // addChar.innerHTML = `${char.name}`
-            // characters.appendChild(addChar)
+        json.forEach(character => {
+            const avatar = new Avatar(character)
+            avatar.attachToSelectionList()
         })
     })
 }
 
 function selectAvatar(e){
-    console.log(e.target)
+    my_avatar.innerHTML = e.target.innerHTML
 }
