@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :charachters, only: [:show, :index] do
+  resources :characters, only: [:show, :index] do
     resources :sayings, only: [:create, :show, :update]
   end
 
