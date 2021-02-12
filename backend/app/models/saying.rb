@@ -1,3 +1,3 @@
 class Saying < ApplicationRecord
-    belongs_to :charachter
+    belongs_to :character
 end

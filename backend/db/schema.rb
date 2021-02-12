@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_221858) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "charachters", force: :cascade do |t|
+  create_table "characters", force: :cascade do |t|
     t.string "name"
     t.string "title"
     t.string "imageUrl"
@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 2021_02_11_221858) do
 
   create_table "sayings", force: :cascade do |t|
     t.string "phrase"
-    t.bigint "charachter_id"
+    t.bigint "character_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["charachter_id"], name: "index_sayings_on_charachter_id"
+    t.index ["character_id"], name: "index_sayings_on_character_id"
   end
 
 end

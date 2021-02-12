@@ -1,8 +1,8 @@
-class CharachtersController < ApplicationController
+class CharactersController < ApplicationController
     def index
-        render json: "Charachter: Index Route"
+        render json: "Character: Index Route"
     end
     def show
-        render json: "Charachter: Show Route"
+        render json: "Character: Show Route"
     end
 end
