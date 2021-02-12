@@ -7,7 +7,12 @@ function getItems(){
         json.forEach(item => {
             let addItem = document.createElement('div')
             addItem.innerHTML = `${item.name}`
+            addItem.addEventListener('click', selectedItem)
             items.appendChild(addItem)
         })
     })
+}
+
+function selectedItem(e){
+    console.log(e.target)
 }
