@@ -13,7 +13,3 @@ function getCharacters(){
     })
 }
 
-  // Document Load
-document.addEventListener("DOMContentLoaded", () => {
-    getCharacters()
-})

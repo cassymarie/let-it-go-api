@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
     def index
-        render json: "Items: Index Route"
+        items = Item.all
+        render json: items
     end
     def show
-        render json: "Items: Show Route"
+        item = Item.find(params[:id])
+        render json: item
     end
 end
