@@ -23,10 +23,7 @@ class Avatar{
     }
 
     renderEdit(){
-        debugger
-        
-        edit_name.value = this.name
-        
+        edit_name.value = this.name        
         this.my_sayings.forEach(saying => {
             const ele = document.createElement('div')
             ele.id = `${saying.id}`
@@ -38,9 +35,6 @@ class Avatar{
             `
             edit_sayings.appendChild(ele)
         })
-
-
-
     }
 
     attachToSelectionList(){
