@@ -45,3 +45,12 @@ body *{
     margin: auto;
     background-color:lightgray;
 }
+
+.ending-container{
+    background-color: lime;
+    height: 20px;
+}
+
+.saying-list{
+    display: flex;
+}

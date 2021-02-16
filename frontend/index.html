@@ -10,12 +10,12 @@
 <body>
     
     <div class="basic-container">
-        <h2>Select a Character  <button id='edit-avatar'>edit</button> </h2>
+        <h2>Select a Character  <button id='edit-avatar' style="display: none;">edit</button> </h2>
         <div class="characters" id="container-charcters"></div>
     </div>
    
-    <div class="battle-ground">         <!-- Selected Avatar Container -->        
-        <div class="basic-container">   
+    <div class="battle-ground" style="display: none;">         <!-- Selected Avatar Container -->        
+        <div class="basic-container" style="display: none;">   
             <div id="sayings-here">     <!-- Sayings Container -->
                
             </div>
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div class="basic-container">
+        <div class="basic-container" style="display: none;">
             <h2>Edit Character</h2>
             <div id="edit-info"> <!-- Edits Container -->
                 <div>Name</div>
@@ -32,11 +32,11 @@
                 <div id="edit-sayings">
                     
                 </div>
-                <input type="submit" name="submit" value="Update Character" class="submit"/>
+                <input type="submit" name="submit" value="Update Character" id="submit-character"/>
             </div>
         </div>
         
-        <div class="basic-container">   <!-- Item Selection Container -->
+        <div class="basic-container" style="display: none;">   <!-- Item Selection Container -->
             <h2>Select an Item to Throw</h2>
             <div class="items" id="container-items"> <!-- Items Container -->
 
@@ -44,6 +44,9 @@
         </div>
     </div>
 
+    <div class="ending-container">
+
+    </div>
 
 
 </body>

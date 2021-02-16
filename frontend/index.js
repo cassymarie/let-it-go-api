@@ -2,6 +2,7 @@
 
 const characters = document.querySelector('#container-charcters')
 const items = document.querySelector('#container-items')
+const battleground = document.querySelector('.battle-ground')
 const saying = document.querySelector('#sayings-here')
 const my_avatar = document.querySelector('#selected-charcter')
 const edit_info = document.querySelector('#edit-info')
@@ -17,13 +18,16 @@ my_avatar.innerHTML = 'My Selected Avatar goes HERE'
 // Document Load
 document.addEventListener("DOMContentLoaded", () => {
     getCharacters()
-    getItems()
+    // getItems()
+    battleground.style.display = 'none'
 })
 
 btn_edit_avatar.addEventListener('click', editMyAvatar)
 
+// show edit section / hide item selection
 function editMyAvatar(e){
     items.parentElement.style.display = 'none' 
     edit_info.parentElement.style.display = 'block' 
     e.target.style.display = 'none'
+    edit_info.querySelector('#submit-character').addEventListener('click',updateCharacter)
 }
