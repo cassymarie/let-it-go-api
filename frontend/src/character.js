@@ -1,5 +1,7 @@
 const base_url = 'http://localhost:3000/'
-
+// ------------------------------------------------------------------
+// OBJECT 
+// ------------------------------------------------------------------
 class Avatar{
     static all = [];
 
@@ -49,6 +51,11 @@ class Avatar{
             `
             edit_sayings.appendChild(ele)
         })
+    }
+
+    randomSaying(){
+        let phraseList = this.my_sayings.map((saying)=>saying.phrase)
+        return phraseList[randomNumber(phraseList.length)]
     }
 }
 // ------------------------------------------------------------------

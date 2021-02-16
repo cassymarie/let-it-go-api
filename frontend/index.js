@@ -31,3 +31,7 @@ function editMyAvatar(e){
     e.target.style.display = 'none'
     edit_info.querySelector('#submit-character').addEventListener('click',updateCharacter)
 }
+
+function randomNumber(max){
+    return Math.floor(Math.random() * max)
+}
