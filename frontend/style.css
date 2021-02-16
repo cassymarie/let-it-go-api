@@ -16,6 +16,12 @@ body *{
     height: 400px;
 }
 
+#edit-info {
+    background-color: rgb(243, 216, 250);
+    margin: auto;
+    height: 400px;
+}
+
 #sayings-here{
     background-color: darkblue;
     color:white;
@@ -37,5 +43,5 @@ body *{
 .basic-container{
     padding: 0;
     margin: auto;
-    background-color: lightgray;
+    background-color:lightgray;
 }
