@@ -16,16 +16,40 @@ class Avatar{
     }
 
     renderSelection(){
-        
         this.element.innerHTML = `${this.name}`
         this.element.id = this.id
         this.element.addEventListener('click', selectAvatar)
         return this.element
     }
 
+    renderEdit(){
+        debugger
+        
+        edit_name.value = this.name
+        
+        this.my_sayings.forEach(saying => {
+            const ele = document.createElement('div')
+            ele.id = `${saying.id}`
+            ele.addEventListener('click',handleSayingClick)
+            ele.innerHTML = `
+                <button class="edit-btn">...</button>
+                <p>${saying.phrase}</p>
+                <button class="delete-btn">X</button>
+            `
+            edit_sayings.appendChild(ele)
+        })
+
+
+
+    }
+
     attachToSelectionList(){
         characters.appendChild(this.renderSelection())
     }
+}
+
+function handleSayingClick(){
+    console.log('clicked')
 }
 
 function getCharacters(){
@@ -39,18 +63,23 @@ function getCharacters(){
     })
 }
 
-
 function showCharacter(id){
     
     fetch(`${base_url}characters/${id}`)
     .then(resp => resp.json())
     .then(json => {
-        
-        console.log(json.data.attributes.name)
 
-        json.included.forEach(saying => {
-            console.log(`${saying.attributes.phrase}`)
-        })
+       let charId = parseInt(json.data.id)
+
+        // console.log(json.data.attributes.name)
+
+        // json.included.forEach(saying => {
+        //     console.log(`${saying.attributes.phrase}`)
+        // })
+
+        selectedAvatar = Avatar.all.find(x => x.id === charId)
+        selectedAvatar.renderEdit()
+        // debugger
     })
 }
 

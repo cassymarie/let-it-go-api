@@ -3,7 +3,7 @@ class Character < ApplicationRecord
     
     def my_sayings
         list = []
-        self.sayings.each{|x| list << x.phrase}
+        self.sayings.each{|x| list << {id: x.id, phrase: x.phrase}}
         list
     end
 end
