@@ -21,6 +21,7 @@ class Avatar{
     renderSelection(){
         this.element.innerHTML = `${this.name}`
         this.element.id = this.id
+        this.element.className = 'btn'
         this.element.addEventListener('click', selectAvatar)
         return this.element
     }
@@ -31,7 +32,7 @@ class Avatar{
 
     // Render Selected Character to 'Battleground' - show/hide respective div's
     renderImage(){
-        my_avatar.innerHTML = `Image of ${this.name}`
+        my_avatar.style.backgroundImage = `url(src/images/characters/${this.imageUrl})`;
         battleground.style.display = 'flex'
         my_avatar.parentElement.style.display = 'block'
     }
@@ -106,5 +107,14 @@ function updateCharacter(e){
 }
 
 function handleSayingClick(){
+    
+    let saying = event.target.parentElement
+    let selected = selectedAvatar.my_sayings.find(x => x.id === parseInt(saying.id))
+
+    saying.innerHTML  = `
+        <textarea class="form-control" rows="4" id="update-name">${selected.phrase}</textarea>
+        <button type="button" class="btn update-btn">OK</button>
+    `
+    debugger
     console.log('clicked')
 }
