@@ -7,6 +7,7 @@ const saying = document.querySelector('#sayings-here')
 const my_avatar = document.querySelector('#selected-charcter')
 const edit_info = document.querySelector('#edit-info')
 const edit_sayings = document.querySelector('#edit-sayings')
+const add_saying = document.querySelector('#add-saying')
 const edit_name = document.querySelector('#edit-name')
 const btn_edit_avatar = document.querySelector('#edit-avatar')
 let selectedAvatar = ''
@@ -31,3 +32,9 @@ function editMyAvatar(e){
 function randomNumber(max){
     return Math.floor(Math.random() * max)
 }
+
+// enable tooltips 
+let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+})

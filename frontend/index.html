@@ -7,6 +7,7 @@
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <!-- api Files  -->
     <link rel="stylesheet" href="style.css" />
     <title> 🎯 Let it Go </title>
@@ -40,12 +41,17 @@
         <div class="container-fluid" style="display: none;">
             <h2>Edit Character</h2>
             <div id="edit-info"> <!-- Edits Container -->
-                <div>Name</div>
-                <input type="text" name="image" value="" id="edit-name"/>
+                <div id="edit-sayings" class="container-fluid">
+                    <label>Name</label>
+                    <input type="text" name="image" value="" id="edit-name" class="form-control"/>
+                </div>
+
                 <div id="edit-sayings">
                     
                 </div>
-                <input type="submit" name="submit" value="Add Saying" id="submit-character"/>
+                <div id="add-saying">
+                    <input type="submit" name="submit" value="Add Saying" id="submit-character"/>
+                </div>
             </div>
         </div>
         

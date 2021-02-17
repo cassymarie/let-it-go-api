@@ -24,6 +24,13 @@ class SayingsController < ApplicationController
         )
     end
 
+    def delete
+        binding.pry
+        saying = Saying.find_by(id: params[:id]) 
+        saying.destroy
+        redirect_to :index
+    end
+    
     private
     def sayings_params
         params.require(:saying).permit(:id, :phrase)
