@@ -3,16 +3,24 @@ body *{
     padding: 10px;
     margin: 0px 10px
 }
+
 img {
     max-width: 100%;
     max-height: 100%;
     margin: 0%;
 }
 
+.basic-container{
+    padding: 0;
+    margin: auto;
+    text-align: center;
+    background-color:lightgray;
+}
+
 #container-charcters {
     background-color: lightblue;
-    margin-bottom: 0;
     display: flex;
+    margin: auto;
 }
 
 #container-items {
@@ -35,16 +43,16 @@ img {
 
 .select-avatar{
     width: 100px;
-    height: 100px;
-    margin: 0px;
+    height: 100px;;
     padding: 0px;
     text-align: center;
 }
 
 #selected-charcter {
     background-color: lightgreen;
-    width: 600px;
-    height: 600px;
+    background-size: 100%;
+    width: 500px;
+    height: 500px;
     margin: auto
 }
 
@@ -53,11 +61,6 @@ img {
     display: flex;
 }
 
-.basic-container{
-    padding: 0;
-    margin: auto;
-    background-color:lightgray;
-}
 
 .ending-container{
     background-color: lime;
@@ -66,4 +69,12 @@ img {
 
 .saying-list{
     display: flex;
+}
+
+.progress{
+    padding: 0px;
+}
+
+.progress-bar{
+    margin: 0;
 }

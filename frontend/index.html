@@ -13,22 +13,25 @@
 </head>
 <body>
     
-    <div class="basic-container">
-        <h2>Select a Character  <button id='edit-avatar' style="display: none;">edit</button> </h2>
+    <div class="container-fluid">
+        <div class="h6">Select a Character  <button id='edit-avatar' style="display: none;">edit</button> </div>
         <div class="characters" id="container-charcters"></div>
     </div>
    
     <div class="battle-ground" style="display: none;">         <!-- Selected Avatar Container -->        
-        <div class="basic-container" style="display: none;">   
+        <div class="container-fluid" style="display: none;">   
             <div id="sayings-here">     <!-- Sayings Container -->
                
             </div>
             
             <div class="my-charachter" id="selected-charcter">  <!-- Avatar Image Container -->
             </div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div>
+            </div>
         </div>
 
-        <div class="basic-container" style="display: none;">
+        <div class="container-fluid" style="display: none;">
             <h2>Edit Character</h2>
             <div id="edit-info"> <!-- Edits Container -->
                 <div>Name</div>
@@ -40,7 +43,7 @@
             </div>
         </div>
         
-        <div class="basic-container" style="display: none;">   <!-- Item Selection Container -->
+        <div class="container-fluid" style="display: none;">   <!-- Item Selection Container -->
             <h2>Select an Item to Throw</h2>
             <div class="items" id="container-items"> <!-- Items Container -->
 
@@ -48,9 +51,6 @@
         </div>
     </div>
 
-    <div class="ending-container">
-
-    </div>
     <!-- api javascript -->
     <script type="text/javascript" src="src/character.js"></script>    
     <script type="text/javascript" src="src/items.js"></script>

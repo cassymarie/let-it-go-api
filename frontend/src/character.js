@@ -20,7 +20,7 @@ class Avatar{
     // Initial Character Select box w/ event
     renderSelection(){
         this.element.addEventListener('click', selectAvatar)
-        this.element.innerHTML = `<img src="src/images/characters/${this.imageUrl}" />`
+        this.element.innerHTML = `<img src="src/images/characters/${this.imageUrl}" class="img-thumbnail"/>`
         this.element.id = this.id
         this.element.className = 'select-avatar'
         return this.element

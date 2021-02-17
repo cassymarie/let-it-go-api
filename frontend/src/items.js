@@ -1,4 +1,5 @@
 'use strict'
+const progressBar = document.querySelector('.progress')
 // ------------------------------------------------------------------
 // OBJECT 
 // ------------------------------------------------------------------
@@ -45,7 +46,7 @@ function throwItem(e){
 
 function hitAvatar(itemDamage){
     
-        selectedAvatar.damage += itemDamage   
+    selectedAvatar.damage += itemDamage   
 
     if (selectedAvatar.damage >= 50){
         saying.value = selectedAvatar.knockout_phrase
@@ -53,6 +54,9 @@ function hitAvatar(itemDamage){
     } else {
         // debugger
         saying.textContent = selectedAvatar.randomSaying()
+        progressBar.innerHTML = `
+            <div class="progress-bar" role="progressbar" style="width: ${(selectedAvatar.damage/50)*100}%" aria-valuenow="${selectedAvatar.damage}" aria-valuemin="0" aria-valuemax="50"></div>
+        `
         console.log(`Damage: ${selectedAvatar.damage}/50`)
     }
 
