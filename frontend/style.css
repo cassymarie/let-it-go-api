@@ -59,7 +59,8 @@ img {
     background-size: 100%;
     width: 500px;
     height: 500px;
-    margin: auto
+    margin: auto;
+    padding: 0px
 }
 
 .battle-ground{
@@ -83,4 +84,11 @@ img {
 
 .progress-bar{
     margin: 0;
+}
+
+#expressions{
+    margin: 125px;
+    margin-top: 150px;
+    width: 250px;
+    height: 250px;
 }

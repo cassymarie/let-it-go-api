@@ -1,3 +1,4 @@
+'use strict'
 const base_url = 'http://localhost:3000/'
 // ------------------------------------------------------------------
 // OBJECT 
@@ -46,9 +47,9 @@ class Avatar{
             ele.id = `${saying.id}`
             ele.addEventListener('click',handleSayingClick)
             ele.innerHTML = `
-                <button class="edit-btn">...</button>
                 <p>${saying.phrase}</p>
-                <button class="delete-btn">X</button>
+                <button class="edit-btn" value="edit">...</button>
+                <button class="delete-btn" value="delete">X</button>
             `
             edit_sayings.appendChild(ele)
         })
@@ -76,7 +77,7 @@ function getCharacters(){
 
 // - Show /Characters/:id
 function showCharacter(id){
-    
+   
     fetch(`${base_url}characters/${id}`)
     .then(resp => resp.json())
     .then(json => {
@@ -106,21 +107,29 @@ function selectAvatar(e){
 }
 
 function updateCharacter(e){
-    btn_edit_avatar.style.display = 'block'
-    getItems()
-    items.parentElement.style.display = 'block' 
-    edit_info.parentElement.style.display = 'none' 
+
+    // btn_edit_avatar.style.display = 'block'
+    // items.parentElement.style.display = 'block' 
+    // edit_info.parentElement.style.display = 'none' 
 }
 
 function handleSayingClick(){
-    
+
     let saying = event.target.parentElement
     let selected = selectedAvatar.my_sayings.find(x => x.id === parseInt(saying.id))
+    let btnType = event.target.value
 
-    saying.innerHTML  = `
+    if (btnType === 'edit'){
+        saying.innerHTML  = `
         <textarea class="form-control" rows="4" id="update-name">${selected.phrase}</textarea>
-        <button type="button" class="btn update-btn">OK</button>
+        <button type="button" class="btn update-btn" value="update">OK</button>
     `
-    debugger
-    console.log('clicked')
+    } else if (btnType === 'delete'){
+
+
+    } else if (btnType === 'update'){
+        let updatedPhrase = saying.querySelector('.form-control').value
+        selected.phrase = updatedPhrase
+        updateSaying(selected)   
+    }
 }
