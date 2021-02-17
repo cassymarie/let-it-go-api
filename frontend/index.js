@@ -26,15 +26,15 @@ function editMyAvatar(e){
     items.parentElement.style.display = 'none' 
     edit_info.parentElement.style.display = 'block' 
     e.target.style.display = 'none'
-    edit_info.querySelector('#submit-character').addEventListener('click',updateCharacter)
+    // document.querySelector('#submit-character').addEventListener('click',updateCharacter)
 }
 
 function randomNumber(max){
     return Math.floor(Math.random() * max)
 }
 
-// enable tooltips 
-let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-})
+// // enable tooltips 
+// let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+// let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+//     return new bootstrap.Tooltip(tooltipTriggerEl)
+// })

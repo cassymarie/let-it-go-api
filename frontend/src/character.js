@@ -54,13 +54,12 @@ class Avatar{
             ele.addEventListener('click',handleSayingClick)
             ele.innerHTML = `
                 <p>${saying.phrase}</p>
-                <button class="edit-btn" value="edit"><i class="pencil"></i></button>
-                <button class="delete-btn" value="delete"><i class="trash"></i></button>
+                <button id="edit-${saying.id}" class="crud-btn" value="edit"><i class="bi-pencil crud-btn" value="edit"></i></button>
+                <button id="delete-${saying.id}" class="crud-btn" value="delete"><i class="bi-trash crud-btn" value="delete"></i></button>
             `
             edit_sayings.appendChild(ele)
-
-            
         })
+        hideAddSaying()
     }
 
     randomSaying(){
@@ -116,15 +115,21 @@ function selectAvatar(e){
 
 function updateCharacter(e){
 
-    let val = event.target.value
+    let val = event.target.parentElement.value
 
-    if (val === 'Add Saying'){
+    if (val === 'add'){
         add_saying.innerHTML = `
-        <textarea class="form-control" rows="4" id="new-saying"></textarea>
-        <button type="submit" class="btn update-btn" value="update"><i class="bi-alarm"></i></button>
+        <textarea class="form-control" rows="3" id="new-phrase" placeholder="Add phrase here..."></textarea>
+        <button type="submit" id="submit-character" class="crud-btn" value="update"><i class="bi-check crud-btn" value="update"></i></button>
         `
+        document.querySelector('#submit-character').addEventListener('click',updateCharacter)
+    } else {
+        e.preventDefault()
+        let newPhrase = add_saying.querySelector('#new-phrase')
+        let addSaying = {phrase: newPhrase.value, character_id: selectedAvatar.id}
+        createSaying(addSaying)
     }
-    debugger
+    
     // btn_edit_avatar.style.display = 'block'
     // items.parentElement.style.display = 'block' 
     // edit_info.parentElement.style.display = 'none' 
