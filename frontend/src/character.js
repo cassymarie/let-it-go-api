@@ -19,10 +19,10 @@ class Avatar{
 
     // Initial Character Select box w/ event
     renderSelection(){
-        this.element.innerHTML = `${this.name}`
-        this.element.id = this.id
-        this.element.className = 'btn'
         this.element.addEventListener('click', selectAvatar)
+        this.element.innerHTML = `<img src="src/images/characters/${this.imageUrl}" />`
+        this.element.id = this.id
+        this.element.className = 'select-avatar'
         return this.element
     }
     // - append above render to the list of characters
@@ -93,7 +93,13 @@ function showCharacter(id){
 // (Click) to Select Avatar
 // - fetch data / render
 function selectAvatar(e){
-    let avatarId = parseInt(e.target.id)
+    let avatarId = ''
+    if (e.target.tagName === "DIV"){
+        avatarId = parseInt(e.target.id)
+    } else {
+        avatarId = parseInt(e.target.parentElement.id)
+    }
+
     showCharacter(avatarId)
     characters.style.display = 'none'
     btn_edit_avatar.style.display = 'flex'
