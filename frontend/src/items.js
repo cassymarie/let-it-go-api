@@ -12,8 +12,8 @@ class Item{
         this.id = id
         this.name = name
         this.damage = damage
-        this.image = base_imageUrl
-        this.splat = splat_imageUrl
+        this.base_imageUrl = base_imageUrl
+        this.splat_imageUrl = splat_imageUrl
         Item.all.push(this)
         this.element = document.createElement('div')
     }
@@ -30,15 +30,17 @@ function getItems(){
             const i = new Item(item.attributes)
             let ele = i.element
             ele.id = i.id
-            ele.innerHTML = `${i.name}`
+            ele.className = 'container-md select-item'
+            ele.innerHTML = `<img src="src/images/items/${i.base_imageUrl}" class="item-thumbnail" />`
             ele.addEventListener('click', throwItem)
             items.appendChild(ele)
         })
+
     })
 }
 
 function throwItem(e){
-    let itemId = parseInt(e.target.id)
+    let itemId = parseInt(e.target.parentElement.id)
     let item = Item.all.find(x => x.id === itemId)
     hitAvatar(item.damage)
     

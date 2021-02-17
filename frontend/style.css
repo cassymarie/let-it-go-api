@@ -41,6 +41,12 @@ img {
     margin-top: 0px;
 }
 
+.select-item{
+    height: 30%;
+    width: 30%;
+    padding: 0px;
+}
+
 .select-avatar{
     width: 100px;
     height: 100px;;

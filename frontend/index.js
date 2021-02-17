@@ -14,6 +14,7 @@ let selectedAvatar = ''
 // Document Load
 document.addEventListener("DOMContentLoaded", () => {
     getCharacters()
+    getItems()
     battleground.style.display = 'none'
 })
 
