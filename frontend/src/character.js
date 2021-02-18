@@ -177,7 +177,6 @@ function setCharacter() {
 }
 
 function handleUpdateCharacter(e){
-    // debugger
     e.preventDefault()
     let newName = edit_character.querySelector('#edit-name').value
     let newKO = edit_character.querySelector('#edit-knockout_phrase').value

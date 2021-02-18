@@ -39,11 +39,14 @@ function getItems(){
     })
 }
 
+// ------------------------------------------------------------------
+// EVENTS 
+// ------------------------------------------------------------------
 function throwItem(e){
     let itemId = parseInt(e.target.parentElement.id)
     let item = Item.all.find(x => x.id === itemId)
-    hitAvatar(item.damage)
     
+    hitAvatar(item.damage)
 }
 
 function hitAvatar(itemDamage){
@@ -52,9 +55,13 @@ function hitAvatar(itemDamage){
 
     if (selectedAvatar.damage >= 50){
         saying.value = selectedAvatar.knockout_phrase
-        selectedAvatar.damage = 0
+        progressBar.innerHTML = `
+        <div class="progress-bar" role="progressbar" style="width:100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50"></div>
+    `   
+        executeInterval = true
+        startCrying
+
     } else {
-        // debugger
         saying.textContent = selectedAvatar.randomSaying()
         progressBar.innerHTML = `
             <div class="progress-bar" role="progressbar" style="width: ${(selectedAvatar.damage/50)*100}%" aria-valuenow="${selectedAvatar.damage}" aria-valuemin="0" aria-valuemax="50"></div>
