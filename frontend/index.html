@@ -18,8 +18,10 @@
     
     <!-- Initial (div) / Instructions & Selection --> 
     <div class="container-fluid startup">
+        <div>Tired of writing tons of code and getting errors all day long!?! Annoyed by a know it all neighbor??  Disagree with your manager or politician? Baby keeping you up and giving you a headache?? </div>
+        <div> Here at 'Let it Go' you can release a little of frustration! Put that smile back on your face while throwing shit at your foe.</div>
         <div class="h6">Select a Character </div>
-        <div class="characters" id="container-charcters"></div>
+        <div class="characters row" id="container-charcters"></div>
     </div>
 
    <!-- 'Battleground: Avatar & edit / Items ' --> 
@@ -33,7 +35,7 @@
                <!-- Random Saying Goes HERE -->
             </div>
             
-            <div class="my-charachter" id="selected-charcter"> 
+            <div id="selected-charcter"> 
                 <!-- SelectedAvatar: BackgroundImage --> 
                 <div id="expressions" style="display: block;">
                     <!-- FACE -->
@@ -66,14 +68,16 @@
 
         <!-- Item Selection Container -->
         <div class="container-fluid">   
-            <h2>Select an Item to Throw</h2>
-            <div class="items container-fluid row" id="container-items">
+            <div  class="sect_label" >Select an Item to Throw</div>
+            <div class="row" id="container-items">
 
             </div>
         </div>
 
     </div> <!-- End of Battleground --> 
-    <button class="testing">Testing</button>
+
+    <!-- <button class="testing">Testing</button> <!-- Comment out: testing only  -->
+
     <!-- api javascript -->
     <script type="text/javascript" src="src/sayings.js"></script>
     <script type="text/javascript" src="src/character.js"></script>    

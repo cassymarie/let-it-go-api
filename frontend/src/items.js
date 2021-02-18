@@ -28,11 +28,11 @@ function getItems(){
             const i = new Item(item.attributes)
             let ele = i.element
             ele.id = i.id
-            ele.className = 'container-md select-item'
+            ele.className = 'col-sm select-item'
             ele.innerHTML = `<img src="src/images/items/${i.base_imageUrl}" class="item-thumbnail" />`
             ele.addEventListener('click', throwItem)
-            ele.addEventListener('mouseover', scaredFace)
-            ele.addEventListener('mouseout', resetFace)
+            ele.addEventListener('mouseover', getNervous)
+            ele.addEventListener('mouseout', expressionLevel)
             items.appendChild(ele)
         })
 
@@ -44,14 +44,35 @@ function getItems(){
 // ------------------------------------------------------------------
 function throwItem(e){
     let itemId = parseInt(e.target.parentElement.id)
-    let item = Item.all.find(x => x.id === itemId)
-    
-    hitAvatar(item.damage)
+    selectedItem = Item.all.find(x => x.id === itemId)
+
+    throwEvent()
+    setTimeout(explodeItem, 750);
 }
 
-function hitAvatar(itemDamage){
+function throwEvent(){
     
-    selectedAvatar.damage += itemDamage   
+    thrown_item.style.backgroundImage = `url(src/images/items/${selectedItem.base_imageUrl})`
+    thrown_item.className = `animate__animated animate__backInRight`
+    thrown_item.style.display = 'block'
+}
+
+function explodeItem(){
+    thrown_item.style.backgroundImage = `url(src/images/items/${selectedItem.splat_imageUrl})`
+    thrown_item.className = `animate__animated animate__pulse`
+    hitAvatar()
+    setTimeout(clearItem, 1000)
+}
+
+function clearItem(){
+    thrown_item.style.backgroundImage = ``
+    thrown_item.className = ``
+    thrown_item.style.display = `none`
+}
+
+function hitAvatar(){
+    
+    selectedAvatar.damage += selectedItem.damage   
 
     if (selectedAvatar.damage >= 50){
         saying.value = selectedAvatar.knockout_phrase
@@ -68,6 +89,4 @@ function hitAvatar(itemDamage){
         `
         console.log(`Damage: ${selectedAvatar.damage}/50`)
     }
-
-       
 }

@@ -1,7 +1,7 @@
 body *{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 10px;
-    margin: 0px 10px
+    /* margin: 0px 10px */
 }
 
 img {
@@ -19,14 +19,14 @@ img {
 
 #container-charcters {
     background-color: lightblue;
-    display: flex;
-    margin: auto;
+    /* display: flex; */
+    /* margin: auto; */
 }
 
 #container-items {
     background-color: lightpink;
     margin: auto;
-    height: 400px;
+    height: fit-content;
 }
 
 #edit-info {
@@ -42,25 +42,21 @@ img {
 }
 
 .select-item{
-    height: 30%;
-    width: 30%;
     padding: 0px;
+    margin: auto;
 }
 
 .select-avatar{
-    width: 100px;
-    height: 100px;;
     padding: 0px;
-    text-align: center;
 }
 
 #selected-charcter {
-    background-color: lightgreen;
     background-size: 100%;
     width: 500px;
     height: 500px;
     margin: auto;
-    padding: 0px
+    padding: 0px;
+    border: none;
 }
 
 .battle-ground{
@@ -91,6 +87,17 @@ img {
     margin-top: 165px;
     width: 250px;
     height: 250px;
+    background-size: 100%;
+    position: absolute;
+    border: none;
+}
+
+#splat{
+    margin: 0;
+    width: 500px;
+    height: 500px;
+    background-size: 100%;
+    border: none;
 }
 
 .crud-btn{
@@ -110,8 +117,6 @@ i {
     margin: 0;
 }
 
-#expressions{
-    max-width: 100%;
-    max-height: 100%;
-    background-size: 100%;
+.sect_label{
+    font-size: x-large;
 }

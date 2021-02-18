@@ -37,14 +37,10 @@ const resetFace = function(){
 }
 
 const scaredFace = function() {
-getFace('nervous')
+    getFace('nervous')
 }
 
 let startCrying = setInterval(() => {if (executeInterval){cry()}}, 1000)
-
-// function startCrying(){
-//     if (executeInterval){setInterval(cry(), 1000)}
-// }
 
 function cry(){
     if (timer === 5){
@@ -57,6 +53,23 @@ function cry(){
     else { getFace('cry2') }
     timer += 1
 }
+
+function expressionLevel(){
+    let rage = selectedAvatar.damage
+
+    if (rage <= 4){ getFace('happy') } else
+    if (rage < 10){ getFace('wink') } else
+    if (rage < 15){ getFace('tired') } else    
+    if (rage < 20){ getFace('nervous') } else    
+    if (rage < 25){ getFace('surprised') } else    
+    if (rage < 30){ getFace('angry') } else
+    if (rage < 35){ getFace('scream') } else  
+    if (rage < 40){ getFace('mad') } else  
+    if (rage < 45){ getFace('rage') } else
+    if (rage >= 45){ getFace('scream big') } else
+    { getFace('confused')}
+}
+
 
 
 

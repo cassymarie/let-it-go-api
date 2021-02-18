@@ -23,7 +23,7 @@ class Avatar{
         this.element.addEventListener('click', selectAvatar)
         this.element.innerHTML = `<img src="src/images/characters/${this.imageUrl}" class="img-thumbnail"/>`
         this.element.id = this.id
-        this.element.className = 'select-avatar'
+        this.element.className = 'col-sm select-avatar'
         this.element.title = `${this.title}`
         
         return this.element
@@ -36,8 +36,7 @@ class Avatar{
 
     // Render Selected Character to 'Battleground' - show/hide respective div's
     renderImage(){
-        my_avatar.style.backgroundImage = `url(src/images/characters/${this.imageUrl})`;
-        battleground.style.display = 'flex'
+        my_avatar.style.backgroundImage = `url(src/images/characters/${this.imageUrl})`
         my_avatar.parentElement.style.display = 'block'
         getFace('happy')
     }
@@ -135,10 +134,12 @@ function showEditAvatar(e){
     items.parentElement.style.display = 'none' 
     edit_info.parentElement.style.display = 'block' 
     btn_edit_avatar.style.display = 'none'
+    battleground.style.display = 'flex'
     document.querySelector('#close-edit').addEventListener('click',closeEditAvatar)
 }
 
 function closeEditAvatar(){
+    battleground.style.display = 'block'
     items.parentElement.style.display = 'block' 
     edit_info.parentElement.style.display = 'none' 
     btn_edit_avatar.style.display = 'block'
@@ -147,7 +148,7 @@ function closeEditAvatar(){
 // Displays the div:battleground
 function showBattleground(){
     startup.style.display = 'none'
-    battleground.style.display = 'flex'
+    battleground.style.display = 'block'
     btn_edit_avatar.style.display = 'flex'
 }
 
@@ -182,4 +183,27 @@ function handleUpdateCharacter(e){
     let newKO = edit_character.querySelector('#edit-knockout_phrase').value
     let updateAvatar = {id: selectedAvatar.id, name: newName, knockout_phrase: newKO}
     updateCharacter(updateAvatar)
+}
+
+function headshaking(){
+    my_avatar.className = 'animate__animated animate__rubberBand'
+    getFace('rage')
+    setTimeout(resetAvatar, 1000);
+}
+
+function getNervous(){
+    // animate__shakeX
+    my_avatar.className = 'animate__animated animate__pulse'
+    face.className = 'animate__animated animate__pulse'
+    setTimeout(resetExpression, 1000);
+}
+
+function resetAvatar(){
+    my_avatar.style.backgroundImage = ``
+    my_avatar.className = ``
+}
+
+function resetExpression(){
+    face.className = ``
+    my_avatar.className = ``
 }
