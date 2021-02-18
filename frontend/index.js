@@ -11,12 +11,15 @@ const edit_sayings = document.querySelector('#edit-sayings')
 const add_saying = document.querySelector('#add-saying')
 const edit_name = document.querySelector('#edit-name')
 const btn_edit_avatar = document.querySelector('#edit-avatar')
+const face = document.querySelector('#expressions')
+
 let selectedAvatar = ''
 
 // Document Load
 document.addEventListener("DOMContentLoaded", () => {
     getCharacters()
     getItems()
+    getExpressions()
 })
 
 btn_edit_avatar.addEventListener('click', showEditAvatar)

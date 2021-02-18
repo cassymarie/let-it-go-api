@@ -1,5 +1,7 @@
 class ExpressionsController < ApplicationController
-    def show
-        render json: "Expressions: Show Route"
+    def index
+        expressions = Expression.all
+        render json: expressions.to_json(
+            except: [:created_at, :updated_at])
     end
 end

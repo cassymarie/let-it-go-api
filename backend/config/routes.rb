@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:show, :index]
-  resources :expressions, only: [:show]
+  resources :expressions, only: [:index]
 end

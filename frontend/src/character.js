@@ -39,6 +39,7 @@ class Avatar{
         my_avatar.style.backgroundImage = `url(src/images/characters/${this.imageUrl})`;
         battleground.style.display = 'flex'
         my_avatar.parentElement.style.display = 'block'
+        getFace('happy')
     }
 
     // Renders Edit section (does not Show) - add all sayings with buttons

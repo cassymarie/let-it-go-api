@@ -6,8 +6,6 @@ const progressBar = document.querySelector('.progress')
 class Item{
     static all = [];
 
-    debugger
-
     constructor({id, name, damage, base_imageUrl, splat_imageUrl}){
         this.id = id
         this.name = name
@@ -33,6 +31,8 @@ function getItems(){
             ele.className = 'container-md select-item'
             ele.innerHTML = `<img src="src/images/items/${i.base_imageUrl}" class="item-thumbnail" />`
             ele.addEventListener('click', throwItem)
+            ele.addEventListener('mouseover', scaredFace)
+            ele.addEventListener('mouseout', resetFace)
             items.appendChild(ele)
         })
 
