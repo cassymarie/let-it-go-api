@@ -78,7 +78,6 @@ function handleSayingClick(){
             <textarea class="form-control" rows="4" id="update-name">${selected.phrase}</textarea>
             <button id="update-${selected.id}" class="crud-btn" value="update"><i class="bi-check crud-btn" value="update"></i></button>
         `  
-        // document.querySelector('#submit-character').addEventListener('click',updateCharacter)
     } else if (btnType === 'delete'){
         deleteSaying(selected)
     } else if (btnType === 'update'){

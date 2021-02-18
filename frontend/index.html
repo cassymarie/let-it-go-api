@@ -14,13 +14,15 @@
 </head>
 <body>
     
-    <div class="container-fluid">
-        <div class="h6">Select a Character  <button id='edit-avatar' style="display: none;">edit</button> </div>
+    <div class="container-fluid startup">
+        <div class="h6">Select a Character </div>
         <div class="characters" id="container-charcters"></div>
     </div>
    
-    <div class="battle-ground" style="display: none;">         <!-- Selected Avatar Container -->        
-        <div class="container-fluid" style="display: none;">   
+    <div class="battle-ground" style="display: none;">
+        <!-- Selected Avatar Container --> 
+        <div class="container-fluid avatar"> 
+            <button id='edit-avatar'>edit</button>  
             <div id="sayings-here">     <!-- Sayings Container -->
                
             </div>
@@ -38,25 +40,25 @@
             </div>
         </div>
 
+        <!-- Edits Container -->
         <div class="container-fluid" style="display: none;">
-            <h2>Edit Character</h2>
-            <div id="edit-info"> <!-- Edits Container -->
-                <div id="edit-charachter" class="container-fluid">
-                    <label>Name</label>
-                    <input type="text" name="image" value="" id="edit-name" class="form-control"/>
+            <h2>Edit Character<button type="button" class="btn-close" aria-label="Close"></button></h2>
+            <div id="edit-info"> 
+                <div id="edit-character" class="container-fluid">
+
                 </div>
                 <div id="edit-sayings">
                     
                 </div>
                 <div id="add-saying">
-                    <!-- <button  type="submit" id="submit-character" class="crud-btn" value="add"><i class="bi-plus-square-fill crud-btn" value="add"></i></button> -->
+
                 </div>
             </div>
         </div>
-        
-        <div class="container-fluid">   <!-- Item Selection Container -->
+        <!-- Item Selection Container -->
+        <div class="container-fluid">   
             <h2>Select an Item to Throw</h2>
-            <div class="items container-fluid row" id="container-items"> <!-- Items Container -->
+            <div class="items container-fluid row" id="container-items">
 
             </div>
         </div>
