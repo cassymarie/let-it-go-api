@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
 btn_edit_avatar.addEventListener('click', showEditAvatar)
 
 
-
 function randomNumber(max){
     return Math.floor(Math.random() * max)
 }

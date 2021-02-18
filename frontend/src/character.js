@@ -134,6 +134,13 @@ function showEditAvatar(e){
     items.parentElement.style.display = 'none' 
     edit_info.parentElement.style.display = 'block' 
     btn_edit_avatar.style.display = 'none'
+    document.querySelector('#close-edit').addEventListener('click',closeEditAvatar)
+}
+
+function closeEditAvatar(){
+    items.parentElement.style.display = 'block' 
+    edit_info.parentElement.style.display = 'none' 
+    btn_edit_avatar.style.display = 'block'
 }
 
 // Displays the div:battleground
@@ -160,7 +167,7 @@ function setCharacter() {
         <h3 class="edit-character-info">${selectedAvatar.name}</h3>
         <p class="edit-character-info">${selectedAvatar.knockout_phrase}</p>
         <button id="set-character" class="crud-btn set-character" value="update">
-            <i class="bi-check crud-btn" value="update"></i>
+            <i class="bi-pencil crud-btn" value="update"></i>
         </button>
     `
     let editBtn = edit_character.querySelector('#set-character')
