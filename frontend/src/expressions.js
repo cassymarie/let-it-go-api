@@ -36,5 +36,5 @@ const getFace = function(description) {
   }
 
   const scaredFace = function() {
-    getFace('winse')
+    getFace('scream_big')
   }
