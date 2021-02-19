@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_221858) do
+ActiveRecord::Schema.define(version: 2021_02_19_163641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 2021_02_11_221858) do
     t.string "knockout_phrase"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "initial"
+    t.integer "finish"
+    t.integer "taunt"
+    t.integer "stunned"
+    t.integer "angry"
+    t.integer "scared"
   end
 
   create_table "expressions", force: :cascade do |t|
@@ -38,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_221858) do
     t.string "splat_imageUrl"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "throw_imageUrl"
   end
 
   create_table "sayings", force: :cascade do |t|
