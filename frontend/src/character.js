@@ -207,3 +207,9 @@ function resetExpression(){
     face.className = ``
     my_avatar.className = ``
 }
+
+function changeCharacter(){
+    battleground.style.display = 'none'
+    startup.style.display = 'block'
+    selectedAvatar = ''
+}

@@ -12,6 +12,7 @@ const speech_bubble = document.querySelector('#add-saying')
 const add_saying = document.querySelector('#add-saying')
 const edit_name = document.querySelector('#edit-name')
 const btn_edit_avatar = document.querySelector('#edit-avatar')
+const change_character = document.querySelector('#change-avatar')
 const thrown_item = document.querySelector('#splat')
 const face = document.querySelector('#expressions')
 const testing = document.querySelector('.testing')
@@ -29,8 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 btn_edit_avatar.addEventListener('click', showEditAvatar)
-
+change_character.addEventListener('click', changeCharacter)
 
 function randomNumber(max){
     return Math.floor(Math.random() * max)
 }
+
