@@ -64,7 +64,7 @@ function deleteSaying(saying){
 
 // ------------------------------------------------------------------
 // EVENTS 
-// ------------------------------------------------------------------
+// ------------------------------------------------------------------ EDIT SAYINGS EVENTS
 // - (Click) Saying List Item
 function handleSayingClick(){
 
@@ -99,7 +99,6 @@ function hideAddSaying(){
     addBtn.addEventListener('click', showAddSaying)
 }
 
-
 function showAddSaying() {
     add_saying.innerHTML = `
         <textarea class="form-control" rows="3" id="new-phrase" placeholder="Add phrase here..."></textarea>
@@ -117,3 +116,5 @@ function handleAddSaying(e){
     let addSaying = {phrase: newPhrase.value, character_id: selectedAvatar.id}
     createSaying(addSaying)
 }
+//------------------------------------
+// -- EVENTS : ANIMATION

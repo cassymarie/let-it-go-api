@@ -1,6 +1,6 @@
 body *{
     /* border: 1px solid black; */
-    padding: 10px;
+    /* padding: 10px; */
     /* margin: 0px 10px */
 }
 
@@ -10,12 +10,12 @@ img {
     margin: 0%;
 }
 
-.basic-container{
+/* .basic-container{
     padding: 0;
     margin: auto;
     text-align: center;
     background-color:lightgray;
-}
+} */
 
 #container-charcters {
     background-color: lightblue;
@@ -35,10 +35,52 @@ img {
     height: 400px;
 }
 
+#speech-bubble{
+    max-width: 30%;
+    margin-top: 1%;
+    position: absolute;
+    padding: 0;
+    text-align: right;
+    margin-left: 2.5%;
+}
+
 #sayings-here{
-    background-color: darkblue;
-    color:white;
-    margin-top: 0px;
+    background-color: white;
+    color:black;
+    padding: 40px;
+    width: fit-content;
+    max-width: 95%;
+    text-align: center;
+    font-size: xx-large;
+    margin-right: 20px;
+    border: 1px, black solid;
+    border-radius: 25%;
+    height: fit-content;
+    box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.50);
+}
+.speech{
+    font-family: 'Long Cang', cursive;
+
+}
+
+.bubble{
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    margin: auto;
+    text-align: right;
+    border: 1px, solid, black;
+    box-shadow: 5px 5px 15px 1px rgba(0,0,0,0.50);
+}
+.pos-1{
+    text-align: right;
+    margin-right: 15px;
+    margin-bottom: 5px;
+}
+.pos-2{
+    text-align: right;
+    margin-right: 0px;
 }
 
 .select-item{
@@ -63,7 +105,29 @@ img {
     background-color: blanchedalmond;
     display: flex;
 }
+.nav-bar {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
 
+.nav-btn{
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+    font-size: 20px;
+    background-color: turquoise;
+}
+
+#edit-avatar{
+    float: right;
+}
+
+.nav-title{
+    text-align: center;
+    margin: auto;
+    font-size: 40px;
+}
 
 .ending-container{
     background-color: lime;
@@ -83,10 +147,10 @@ img {
 }
 
 #expressions{
-    margin: 125px;
-    margin-top: 165px;
-    width: 250px;
-    height: 250px;
+    margin: 140px;
+    margin-top: 180px;
+    width: 220px;
+    height: 220px;
     background-size: 100%;
     position: absolute;
     border: none;
@@ -120,3 +184,99 @@ i {
 .sect_label{
     font-size: x-large;
 }
+
+.intro-questions{
+    font-family: 'Rancho', cursive;
+    font-size: xx-large;
+    text-align: center;
+}
+
+
+
+
+
+
+@keyframes gettinInYoFace {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+  
+    to {
+      opacity: 1;
+      transform: scale(100);
+    }
+  }
+  
+  .gettinInYoFace {
+    animation-timing-function: ease-in-out;
+    animation-name: gettinInYoFace;
+    animation-duration: 1s;
+  }
+
+  @keyframes iWanChuBack {
+    0% {
+      opacity: 1;
+    }
+  
+    25% {
+      opacity: 1;
+      transform: scale3d(0.5, 0.5, 0.5);
+    }
+  
+    50% {
+      opacity: 1;
+      transform: scale3d(0.5, 0.5, 0.5);
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .iWanChuBack {
+    animation-name: iWanChuBack;
+    animation-duration: 3s;
+  }
+
+  @keyframes pulsate {
+    from {
+      opacity: 1;
+    }
+    10% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+  
+    30% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0;
+    }
+    to {
+    }
+  }
+  
+  .pulsate {
+    animation-name: pulsate;
+    animation-duration: 10s;
+  }
+  

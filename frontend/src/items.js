@@ -59,15 +59,17 @@ function throwEvent(){
 
 function explodeItem(){
     thrown_item.style.backgroundImage = `url(src/images/items/${selectedItem.splat_imageUrl})`
-    thrown_item.className = `animate__animated animate__pulse`
     hitAvatar()
-    setTimeout(clearItem, 1000)
+    
+    thrown_item.className = "gettinInYoFace "
+    setTimeout(clearItem, 2000)
 }
 
 function clearItem(){
     thrown_item.style.backgroundImage = ``
     thrown_item.className = ``
     thrown_item.style.display = `none`
+    my_avatar.className = 'animate__animated animate__bounceIn'
 }
 
 function hitAvatar(){
@@ -87,6 +89,5 @@ function hitAvatar(){
         progressBar.innerHTML = `
             <div class="progress-bar" role="progressbar" style="width: ${(selectedAvatar.damage/50)*100}%" aria-valuenow="${selectedAvatar.damage}" aria-valuemin="0" aria-valuemax="50"></div>
         `
-        console.log(`Damage: ${selectedAvatar.damage}/50`)
     }
 }

@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <!-- Animate.css  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Wicked.css  -->
+    <link rel="stylesheet" href="css/wickedcss.min.css">
+
+    <!-- Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet">
     <!-- api Files  -->
     <link rel="stylesheet" href="style.css" />
     <title> 🎯 Let it Go </title>
@@ -18,21 +25,27 @@
     
     <!-- Initial (div) / Instructions & Selection --> 
     <div class="container-fluid startup">
-        <div>Tired of writing tons of code and getting errors all day long!?! Annoyed by a know it all neighbor??  Disagree with your manager or politician? Baby keeping you up and giving you a headache?? </div>
-        <div> Here at 'Let it Go' you can release a little of frustration! Put that smile back on your face while throwing shit at your foe.</div>
+        <div class="intro-questions">Tired of writing tons of code and getting errors all day long!?! <br> Annoyed by a know-it-all neighbor??  <br>  Disagree with your manager or politician?  <br> Baby keeping you up and giving you a headache?? </div>
+        <div> Here at 'Let it Go' you can release a little of frustration! <br> Put that smile back on your face while throwing shit at your foe.</div>
         <div class="h6">Select a Character </div>
         <div class="characters row" id="container-charcters"></div>
     </div>
 
    <!-- 'Battleground: Avatar & edit / Items ' --> 
-    <div class="battle-ground" style="display: none;">
-
+    <div class="battle-ground" style="display: none;">  
+        <div class="nav-bar"  style="display: flex">
+            <button id='change-avatar' class='nav-btn'>Change Character</button>
+                <div class='nav-title'>Let it go on <strong>This Guy!</strong></div>
+            <button id='edit-avatar' class='nav-btn'>Edit Character</button>
+        </div>
         <!-- Selected Avatar Container --> 
         <div class="container-fluid avatar"> 
-            <button id='edit-avatar'><i class="bi-pencil crud-btn"></i></button>  
-
-            <div id="sayings-here">     
-               <!-- Random Saying Goes HERE -->
+            <div id="speech-bubble"  style="display: none;">
+                <div id="sayings-here" class="speech">     
+                   <!-- Random Saying Goes HERE -->
+                </div>
+                <div class="bubble pos-1"></div>
+                <div class="bubble pos-2"></div>
             </div>
             
             <div id="selected-charcter"> 
