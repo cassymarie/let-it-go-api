@@ -18,27 +18,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet">
     <!-- api Files  -->
+    <link rel="stylesheet" href="src/css/signin.css" />
     <link rel="stylesheet" href="style.css" />
+    
     <title> 🎯 Let it Go </title>
 </head>
-<body>
+<body class="backgrnd-paint">
     
-    <!-- Initial (div) / Instructions & Selection -->
-    <div class="container-fluid startup">
+    <!-- Initial (div) / Instructions & SignIn -->
+    <div class="startup">
         <div class="intro-questions">Tired of writing tons of code and getting errors all day long!?! <br> Annoyed by a know-it-all neighbor??  <br>  Disagree with your manager or politician?  <br> Baby keeping you up and giving you a headache?? </div>
-        <div> Here at 'Let it Go' you can release a little of frustration! <br> Put that smile back on your face while throwing shit at your foe.</div>
-        <form>
 
-        </form>
-
-        <div>
-            <div class="h6">Select a Character </div>
-            <div class="characters row" id="container-charcters"></div>
+        <div class="intro-description"> 
+            <h2>Let It Go!!!!</h2>
+            <p>Release some frustration and put that smile back on your face<br>while throwing shit at your foe.</p>
+        </div>
+        <div id="signin_div">
+            <h4 class="welcome">Welcome to Let it Go</h4>
+            <input type="text" id="new-username" placeholder="Username here">
+            <div id="signin-error"></div>
+            <button id="btn-signin">Enter</button>
         </div>
     </div>
 
    <!-- 'Battleground: Avatar & edit / Items ' --> 
     <div class="battle-ground" style="display: none;">  
+        <div>
+            <div class="h6">Select a Character </div>
+            <div class="characters row" id="container-charcters"></div>
+        </div>
         <div class="nav-bar"  style="display: flex">
             <button id='change-avatar' class='nav-btn'>Change Character</button>
                 <div class='nav-title'>Let it go on <strong>This Guy!</strong></div>
@@ -107,7 +115,8 @@
 
     <!-- api javascript -->
     <script type="text/javascript" src="src/sayings.js"></script>
-    <script type="text/javascript" src="src/character.js"></script>    
+    <script type="text/javascript" src="src/avatars.js"></script>    
+    <script type="text/javascript" src="src/users.js"></script>
     <script type="text/javascript" src="src/items.js"></script>
     <script type="text/javascript" src="src/expressions.js"></script>
     <script type="text/javascript" src="index.js"></script>

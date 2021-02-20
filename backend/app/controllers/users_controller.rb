@@ -4,16 +4,24 @@ class UsersController < ApplicationController
         user = User.find_by(username: params[:username].downcase)
 
         if user
-            session[:user_id] = @user.id
+            session[:user_id] = user.id
+            render json: UserSerializer.new(user, {include: [:avatars]})
         else
             if user.nil?
-                session[:user_id] = User.create(username: params[:username])
-                flash[:alert] = 'Email not found. Sign Up to continue.'
+                user = User.create(username: params[:username].downcase)
+                session[:user_id] = user.id
+                render json: UserSerializer.new(user, {include: [:avatars]})
             else
-                flash[:alert] = 'Email and/or Password are incorrect.  Please try again.'
+                render json: {message: "Could not Signin User"} 
             end
         end
     end
+
+    def show
+        user = User.find_by(id: params[:id])
+        render json: UserSerializer.new(user, {include: [:avatars]})
+    end
+
     
     private
     def user_params

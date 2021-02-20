@@ -1,4 +1,7 @@
 'use strict'
+
+const signin = document.querySelector('#signin_form')
+const btn_signin = document.querySelector('#btn-signin')
 const startup = document.querySelector('.startup')
 const characters = document.querySelector('#container-charcters')
 const items = document.querySelector('#container-items')
@@ -11,24 +14,28 @@ const edit_sayings = document.querySelector('#edit-sayings')
 const speech_bubble = document.querySelector('#add-saying')
 const add_saying = document.querySelector('#add-saying')
 const edit_name = document.querySelector('#edit-name')
+
 const btn_edit_avatar = document.querySelector('#edit-avatar')
 const change_character = document.querySelector('#change-avatar')
+
 const thrown_item = document.querySelector('#splat')
 const face = document.querySelector('#expressions')
 const testing = document.querySelector('.testing')
 
 let selectedAvatar = ''
 let selectedItem = ''
+let currUser = ''
 
 // testing.addEventListener('click',headshaking)
 
 // Document Load
 document.addEventListener("DOMContentLoaded", () => {
-    getCharacters()
-    getItems()
-    getExpressions()
+    // getAvatars()
+    // getItems()
+    // getExpressions()
 })
 
+btn_signin.addEventListener('click', handleSigninClick)
 btn_edit_avatar.addEventListener('click', showEditAvatar)
 change_character.addEventListener('click', changeCharacter)
 

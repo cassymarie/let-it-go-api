@@ -6,12 +6,12 @@ const base_url = 'http://localhost:3000/'
 class Avatar{
     static all = [];
 
-    constructor({id, name, title, imageUrl, knockout_phrase, my_sayings}){
+    constructor({id, name, knockout_phrase, face_id, character_id, my_sayings}){
         this.id = id
         this.name = name
-        this.title = title
-        this.imageUrl = imageUrl
         this.knockout_phrase = knockout_phrase
+        this.face_id = face_id
+        this.character_id = character_id
         this.damage = 0
         this.my_sayings = my_sayings
         Avatar.all.push(this)
@@ -69,8 +69,8 @@ class Avatar{
 // CRUD 
 // ------------------------------------------------------------------
 // - Index /Characters
-function getCharacters(){
-    fetch(`${base_url}characters`)
+function getAvatars(){
+    fetch(`${base_url}avatars`)
     .then(resp => resp.json())
     .then(json => {
         json.data.forEach(character => {
@@ -81,20 +81,31 @@ function getCharacters(){
 }
 
 // - Show /Characters/:id
-function showCharacter(id){
-   
-    fetch(`${base_url}characters/${id}`)
+function showAvatar(id){
+
+    fetch(`${base_url}avatars/${id}`)
     .then(resp => resp.json())
     .then(json => {
+
+
         //Sets const obj of the selected Avatar
-        selectedAvatar = Avatar.all.find(x => x.id === id)
-        selectedAvatar.renderEdit()
-        selectedAvatar.renderImage()
+        let found = json.data.attributes
+
+        found.character_id = json.relationships.character.data.id
+
+        debugger
+
+        return found
+                 
     })
+        // selectedAvatar = Avatar.all.find(x => x.id === id)
+        // selectedAvatar.renderEdit()
+        // selectedAvatar.renderImage()
+    
 }
 
 // - Update /Characters/:id
-function updateCharacter(myAvatar){
+function updateAvatar(myAvatar){
     let configObj = {
     method: "PATCH",
     headers: {
@@ -104,7 +115,7 @@ function updateCharacter(myAvatar){
     body: JSON.stringify({ myAvatar })
     }
 
-fetch(`${base_url}characters/${myAvatar.id}`, configObj)
+fetch(`${base_url}avatars/${myAvatar.id}`, configObj)
     .then(response => response.json())
     .then(json => {
         selectedAvatar.name = json.name

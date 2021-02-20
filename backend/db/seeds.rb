@@ -93,5 +93,5 @@ Item.create(name: 'egg', count: 4, damage: 6, base_imageUrl: "egg_base.png", thr
 Item.create(name: 'waterballoon', count: 3, damage: 6, base_imageUrl: "waterballoon_base.png", throw_imageUrl: "waterballoon_throw.png", splat_imageUrl: "waterballoon_splat.png")
 
 
-User.create(username: "Cassy")
-User.create(username: "Steve")
+User.create(username: "cassy")
+User.create(username: "steve")

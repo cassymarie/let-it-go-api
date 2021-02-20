@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_many :avatars
     has_many :characters, through: :avatars
+    accepts_nested_attributes_for :avatars
 
     validates :username, presence: true, uniqueness: true
 
