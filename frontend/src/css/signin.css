@@ -67,3 +67,9 @@
     font-size: 20px;
     padding: .5% 5%
 }
+
+#signin-error{
+    color: red;
+    font-style: italic;
+    background-color: rgba(243, 240, 243, 0.5);
+}

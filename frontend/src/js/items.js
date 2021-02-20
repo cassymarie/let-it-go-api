@@ -52,13 +52,13 @@ function throwItem(e){
 
 function throwEvent(){
     
-    thrown_item.style.backgroundImage = `url(src/images/items/${selectedItem.base_imageUrl})`
+    // thrown_item.style.backgroundImage = `url(src/images/items/${selectedItem.base_imageUrl})`
     thrown_item.className = `animate__animated animate__backInRight`
     thrown_item.style.display = 'block'
 }
 
 function explodeItem(){
-    thrown_item.style.backgroundImage = `url(src/images/items/${selectedItem.splat_imageUrl})`
+    // thrown_item.style.backgroundImage = `url(src/images/items/${selectedItem.splat_imageUrl})`
     hitAvatar()
     
     thrown_item.className = "gettinInYoFace "

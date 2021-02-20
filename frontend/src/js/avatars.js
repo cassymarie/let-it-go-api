@@ -21,7 +21,7 @@ class Avatar{
     // Initial Character Select box w/ event
     renderSelection(){
         this.element.addEventListener('click', selectAvatar)
-        this.element.innerHTML = `<img src="src/images/characters/${this.imageUrl}" class="img-thumbnail"/>`
+        // this.element.innerHTML = `<img src="src/images/characters/${this.imageUrl}" class="img-thumbnail"/>`
         this.element.id = this.id
         this.element.className = 'col-sm select-avatar'
         this.element.title = `${this.title}`
@@ -36,9 +36,9 @@ class Avatar{
 
     // Render Selected Character to 'Battleground' - show/hide respective div's
     renderImage(){
-        my_avatar.style.backgroundImage = `url(src/images/characters/${this.imageUrl})`
+        // my_avatar.style.backgroundImage = `url(src/images/characters/${this.imageUrl})`
         my_avatar.parentElement.style.display = 'block'
-        getFace('happy')
+        // getFace('happy')
     }
 
     // Renders Edit section (does not Show) - add all sayings with buttons
@@ -158,6 +158,7 @@ function closeEditAvatar(){
 
 // Displays the div:battleground
 function showBattleground(){
+    pageBody.className = ''
     startup.style.display = 'none'
     battleground.style.display = 'block'
     btn_edit_avatar.style.display = 'flex'

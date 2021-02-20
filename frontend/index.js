@@ -1,5 +1,6 @@
 'use strict'
 
+const pageBody = document.querySelector('#page-body')
 const signin = document.querySelector('#signin_form')
 const btn_signin = document.querySelector('#btn-signin')
 const startup = document.querySelector('.startup')

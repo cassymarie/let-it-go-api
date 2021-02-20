@@ -29,7 +29,7 @@ function getExpressions(){
 
 const getFace = function(description) {
     let facePic = Expression.all.find(x => x.description === description)
-    face.style.backgroundImage = `url(src/images/expressions/${facePic.imageUrl})`
+    // face.style.backgroundImage = `url(src/images/expressions/${facePic.imageUrl})`
   }
 
 const resetFace = function(){
