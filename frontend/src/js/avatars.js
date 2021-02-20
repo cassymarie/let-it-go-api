@@ -6,7 +6,7 @@ const base_url = 'http://localhost:3000/'
 class Avatar{
     static all = [];
 
-    constructor({id, name, knockout_phrase, face_id, character_id, my_sayings}){
+    constructor({id, name, knockout_phrase, face_id, character_id, my_sayings, image, title}){
         this.id = id
         this.name = name
         this.knockout_phrase = knockout_phrase
@@ -14,6 +14,8 @@ class Avatar{
         this.character_id = character_id
         this.damage = 0
         this.my_sayings = my_sayings
+        this.image = image
+        this.title = title
         Avatar.all.push(this)
         this.element = document.createElement('div')
     }
@@ -21,10 +23,10 @@ class Avatar{
     // Initial Character Select box w/ event
     renderSelection(){
         this.element.addEventListener('click', selectAvatar)
-        // this.element.innerHTML = `<img src="src/images/characters/${this.imageUrl}" class="img-thumbnail"/>`
+        this.element.innerHTML = `<img src="src/images/characters/${this.image}" class="img-thumbnail"/>`
         this.element.id = this.id
         this.element.className = 'col-sm select-avatar'
-        this.element.title = `${this.title}`
+        this.element.title = `${this.name}`
         
         return this.element
     }
@@ -156,14 +158,6 @@ function closeEditAvatar(){
     btn_edit_avatar.style.display = 'block'
 }
 
-// Displays the div:battleground
-function showBattleground(){
-    pageBody.className = ''
-    startup.style.display = 'none'
-    battleground.style.display = 'block'
-    btn_edit_avatar.style.display = 'flex'
-}
-
 function editCharacter(){
     edit_character.innerHTML = `
     <input type="text" name="image" value="${selectedAvatar.name}" id="edit-name" class="form-control"/>
@@ -224,4 +218,8 @@ function changeCharacter(){
     battleground.style.display = 'none'
     startup.style.display = 'block'
     selectedAvatar = ''
+}
+
+function listAvatars(){
+    
 }

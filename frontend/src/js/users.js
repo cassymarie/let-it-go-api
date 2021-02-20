@@ -23,7 +23,7 @@ function createUser(newUser){
 
             avatarsIncluded.forEach(avatar => {
                 const obj = new Avatar(avatar.attributes)
-                // obj.attachToSelectionList()
+                obj.attachToSelectionList()
             })
             showBattleground()
       })
@@ -44,4 +44,13 @@ function handleSigninClick(e){
         errorfld.style.display = 'block'
         errorfld.textContent = 'Username must NOT be blank'
     }
+}
+
+// Displays the div:battleground
+function showBattleground(){
+    pageBody.className = ''
+    startup.style.display = 'none'
+    battleground.style.display = 'block'
+    usersAvatars.style.display = 'block'
+    navBar.style.display = 'none'
 }

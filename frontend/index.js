@@ -2,8 +2,10 @@
 
 const pageBody = document.querySelector('#page-body')
 const signin = document.querySelector('#signin_form')
+const navBar = document.querySelector('.nav-bar')
 const btn_signin = document.querySelector('#btn-signin')
 const startup = document.querySelector('.startup')
+const usersAvatars = document.querySelector('.users-avatars')
 const characters = document.querySelector('#container-charcters')
 const items = document.querySelector('#container-items')
 const battleground = document.querySelector('.battle-ground')

@@ -9,5 +9,12 @@ class Avatar < ApplicationRecord
         self.sayings.each{|x| list << {id: x.id, phrase: x.phrase}}
         list
     end
-    
+
+    def image
+        self.character.imageUrl
+    end
+
+    def title
+        self.character.title
+    end    
 end
