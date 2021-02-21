@@ -13,7 +13,7 @@ function createSaying(newSaying){
         body: JSON.stringify(newSaying)
       }
 
-    fetch(`${base_url}characters/${selectedAvatar.id}/sayings`, configObj)
+    fetch(`${base_url}avatars/${selectedAvatar.id}/sayings`, configObj)
         .then(response => response.json())
         .then(json => {
             selectedAvatar.my_sayings.push(json)
@@ -33,11 +33,11 @@ function updateSaying(saying){
         body: JSON.stringify({ saying })
       }
 
-    fetch(`${base_url}characters/${selectedAvatar.id}/sayings/${saying.id}`, configObj)
+    fetch(`${base_url}avatars/${selectedAvatar.id}/sayings/${saying.id}`, configObj)
         .then(response => response.json())
         .then(json => {
             edit_sayings.innerHTML = ""
-            selectedAvatar.renderEdit()
+            viewingAvatar.updateSayingsList()
       })
 }
 
@@ -52,7 +52,7 @@ function deleteSaying(saying){
         body: JSON.stringify({ saying })
       }
 
-    fetch(`${base_url}characters/${selectedAvatar.id}/sayings/${saying.id}`, configObj)
+    fetch(`${base_url}avatars/${selectedAvatar.id}/sayings/${saying.id}`, configObj)
         .then(response => response.json())
         .then(json => {
             
@@ -71,13 +71,13 @@ function handleSayingClick(){
     let saying = event.target.parentElement
     let btnType = saying.value
     let lkupID = parseInt(saying.id.replace(`${btnType}-`,''))
-    let selected = selectedAvatar.my_sayings.find(x => x.id === lkupID)
+    let selected = viewingAvatar.my_sayings.find(x => x.id === lkupID)
 
     if (btnType === 'edit'){
         saying.parentElement.innerHTML  = `
-            <textarea class="form-control" rows="4" id="update-name">${selected.phrase}</textarea>
+            <textarea class="avatar-saying form-control" rows="4" id="update-name">${selected.phrase}</textarea>
             <button id="update-${selected.id}" class="crud-btn" value="update">
-                <i class="bi-check crud-btn" value="update"></i>
+                <i class="bi-check" value="update"></i>
             </button>
         `  
     } else if (btnType === 'delete'){
