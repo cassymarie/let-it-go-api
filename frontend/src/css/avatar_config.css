@@ -54,7 +54,7 @@
     margin-right: 4px;
     border: none;
     color: lightgray;
-    font-size: large;
+    font-size: 20px;
     float: right;
 }
 
@@ -68,6 +68,7 @@
     height: fit-content;
     padding: 25px;
     margin:3%;
+    margin-top: 0%;
     padding-top: 5px;
     border: 1px solid black;
 }
@@ -94,12 +95,27 @@
     margin-top: 135px;
 }
 
-.polaroid-knockout{
+
+.knockout-saying{
     font-family: 'Rancho', cursive;
     text-align: center;
     font-size: 30px;
+    min-height: 50px;
+    max-height: fit-content;
+    overflow: scroll;
 }
 
+.knockout-title{
+    text-align: left;
+    font-size: 16px;
+    background-color: darkblue;
+    width: fit-content;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 3px 10px;
+    position: absolute;
+    margin: -20px -5px;
+}
 
 /* =================
     Avatars Sayings 
@@ -115,6 +131,7 @@
 #edit-sayings{
     background-color: white;
     padding: 1%;
+    overflow: scroll;
 }
 
 .saying-list{
@@ -134,6 +151,7 @@
     font-size: 20px;
     color: purple;
 }
+
 .crud-btn{
     background-color: white;
     padding: 0px;

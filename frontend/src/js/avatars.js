@@ -1,5 +1,7 @@
 'use strict'
 const base_url = 'http://localhost:3000/'
+
+
 // ------------------------------------------------------------------
 // OBJECT 
 // ------------------------------------------------------------------
@@ -20,7 +22,7 @@ class Avatar{
         this.element = document.createElement('div')
     }
 
-    // Initial Character Select box w/ event
+    // Initial Character Selection w/ event
     renderSelection(){
         this.element.addEventListener('click', selectAvatar)
         this.element.style.backgroundImage = `url(src/images/characters/${this.image})`
@@ -35,17 +37,28 @@ class Avatar{
         characters.appendChild(this.renderSelection())
     }
 
-    // Render Selected Character to 'Battleground' - show/hide respective div's
-    renderImage(){
-        // my_avatar.style.backgroundImage = `url(src/images/characters/${this.imageUrl})`
-        my_avatar.parentElement.style.display = 'block'
-        // getFace('happy')
-    }
     updatePolaroid(){
-        // debugger
-        polaroid.querySelector('.name-title').textContent = this.name
-        polaroid.querySelector('.polaroid-avatar').style.backgroundImage = `url(src/images/characters/${this.image})`
-        polaroid.querySelector('.polaroid-knockout').textContent = this.knockout_phrase
+        polaroid_name.innerHTML = `
+        ${this.name} <button id="edit-avatar" class="name-edit" value="update"><i class="bi-pencil-fill" value="update"></i>
+            </button>`
+        polaroid_name.querySelector("#edit-avatar").addEventListener('click', showEditAvatar)
+        polaroid_image.style.backgroundImage = `url(src/images/characters/${this.image})`
+        polaroid_saying.innerHTML = `
+        <div class="knockout-saying">${this.knockout_phrase}</div>`
+    }
+
+    editPolaroid(){
+        polaroid_name.innerHTML = `
+        <input type="text" value="${this.name}" id="edit-name" class="form-control name-title"/>`
+
+        polaroid_saying.innerHTML = `
+            <div class="knockout-title">Knockout Phrase</div>
+            <textarea class="form-control knockout-saying" id="updated-knockout">${this.knockout_phrase}</textarea>
+            <button type="submit" id="submit-avatar" class="crud-btn" value="update">
+                <i class="bi-check crud-btn" value="update"></i>
+            </button>`
+
+        document.querySelector('#submit-avatar').addEventListener('click', handleUpdateCharacter)
     }
 
     updateSayingsList(){
@@ -61,29 +74,34 @@ class Avatar{
                 <button id="delete-${saying.id}" class="crud-btn" value="delete"><i class="bi-trash crud-btn" value="delete"></i></button>
             `
             edit_sayings.appendChild(ele)
+            hideAddSaying()
         })
-
     }
 
+    // Render Selected Character to 'Battleground' - show/hide respective div's
+    renderImage(){
+        // my_avatar.style.backgroundImage = `url(src/images/characters/${this.imageUrl})`
+        my_avatar.parentElement.style.display = 'block'
+        // getFace('happy')
+    }
 
     // Renders Edit section (does not Show) - add all sayings with buttons
-    renderPortfolio(){
-        setCharacter() 
-        edit_sayings.innerHTML = ""      
-        this.my_sayings.forEach(saying => {
-            const ele = document.createElement('div')
-            ele.className = 'saying-list'
-            ele.id = `${saying.id}`
-            ele.addEventListener('click',handleSayingClick)
-            ele.innerHTML = `
-                <p>${saying.phrase}</p>
-                <button id="edit-${saying.id}" class="crud-btn" value="edit"><i class="bi-pencil crud-btn" value="edit"></i></button>
-                <button id="delete-${saying.id}" class="crud-btn" value="delete"><i class="bi-trash crud-btn" value="delete"></i></button>
-            `
-            edit_sayings.appendChild(ele)
-        })
-        hideAddSaying()
-    }
+    // renderPortfolio(){
+    //     setCharacter() 
+    //     edit_sayings.innerHTML = ""      
+    //     this.my_sayings.forEach(saying => {
+    //         const ele = document.createElement('div')
+    //         ele.className = 'saying-list'
+    //         ele.id = `${saying.id}`
+    //         ele.addEventListener('click',handleSayingClick)
+    //         ele.innerHTML = `
+    //             <p>${saying.phrase}</p>
+    //             <button id="edit-${saying.id}" class="crud-btn" value="edit"><i class="bi-pencil crud-btn" value="edit"></i></button>
+    //             <button id="delete-${saying.id}" class="crud-btn" value="delete"><i class="bi-trash crud-btn" value="delete"></i></button>
+    //         `
+    //         edit_sayings.appendChild(ele)
+    //     })
+
 
     randomSaying(){
         let phraseList = this.my_sayings.map((saying)=>saying.phrase)
@@ -105,30 +123,6 @@ function getAvatars(){
     })
 }
 
-// - Show /Characters/:id
-function showAvatar(id){
-
-    fetch(`${base_url}avatars/${id}`)
-    .then(resp => resp.json())
-    .then(json => {
-        debugger
-
-        //Sets const obj of the selected Avatar
-        let found = json.data.attributes
-
-        found.character_id = json.relationships.character.data.id
-
-        
-
-        return found
-                 
-    })
-        // selectedAvatar = Avatar.all.find(x => x.id === id)
-        // selectedAvatar.renderEdit()
-        // selectedAvatar.renderImage()
-    
-}
-
 // - Update /Characters/:id
 function updateAvatar(myAvatar){
     let configObj = {
@@ -143,9 +137,9 @@ function updateAvatar(myAvatar){
 fetch(`${base_url}avatars/${myAvatar.id}`, configObj)
     .then(response => response.json())
     .then(json => {
-        selectedAvatar.name = json.name
-        selectedAvatar.knockout_phrase = json.knockout_phrase
-        selectedAvatar.renderEdit()
+        viewingAvatar.name = json.name
+        viewingAvatar.knockout_phrase = json.knockout_phrase
+        viewingAvatar.updatePolaroid()
     })
 }
 
@@ -161,59 +155,42 @@ function selectAvatar(e){
     viewingAvatar.updateSayingsList()
 }
 
-function listSayings(avatar){
-    avatar.my_sayings.map(saying => {
-
-    })
-}
-
 // show edit section / hide item selection
-function showEditAvatar(e){
-    items.parentElement.style.display = 'none' 
-    edit_info.parentElement.style.display = 'block' 
-    btn_edit_avatar.style.display = 'none'
-    battleground.style.display = 'flex'
-    document.querySelector('#close-edit').addEventListener('click',closeEditAvatar)
+function showEditAvatar(){
+    viewingAvatar.editPolaroid()
 }
 
-function closeEditAvatar(){
-    battleground.style.display = 'block'
-    items.parentElement.style.display = 'block' 
-    edit_info.parentElement.style.display = 'none' 
-    btn_edit_avatar.style.display = 'block'
-}
+// function editCharacter(){
+//     edit_character.innerHTML = `
+//     <input type="text" name="image" value="${selectedAvatar.name}" id="edit-name" class="form-control"/>
+//     <input type="text" name="image" value="${selectedAvatar.knockout_phrase}" id="edit-knockout_phrase" class="form-control"/>
+//     <button id="update-character" class="crud-btn" value="update">
+//         <i class="bi-check crud-btn" value="update"></i>
+//     </button>
+// `
+//     edit_character.querySelector('#update-character').addEventListener('click', handleUpdateCharacter)
+    
+// }
 
-function editCharacter(){
-    edit_character.innerHTML = `
-    <input type="text" name="image" value="${selectedAvatar.name}" id="edit-name" class="form-control"/>
-    <input type="text" name="image" value="${selectedAvatar.knockout_phrase}" id="edit-knockout_phrase" class="form-control"/>
-    <button id="update-character" class="crud-btn" value="update">
-        <i class="bi-check crud-btn" value="update"></i>
-    </button>
-`
-    let updateBtn = edit_character.querySelector('#update-character')
-    updateBtn.addEventListener('click', handleUpdateCharacter)
-}
-
-function setCharacter() {
-    edit_character.innerHTML = `
-        <h3 class="edit-character-info">${selectedAvatar.name}</h3>
-        <p class="edit-character-info">${selectedAvatar.knockout_phrase}</p>
-        <button id="set-character" class="crud-btn set-character" value="update">
-            <i class="bi-pencil crud-btn" value="update"></i>
-        </button>
-    `
-    let editBtn = edit_character.querySelector('#set-character')
-    edit_character.addEventListener('dblclick', editCharacter)
-    editBtn.addEventListener('click', editCharacter)
-}
+// function setCharacter() {
+//     edit_character.innerHTML = `
+//         <h3 class="edit-character-info">${selectedAvatar.name}</h3>
+//         <p class="edit-character-info">${selectedAvatar.knockout_phrase}</p>
+//         <button id="set-character" class="crud-btn set-character" value="update">
+//             <i class="bi-pencil crud-btn" value="update"></i>
+//         </button>
+//     `
+//     let editBtn = edit_character.querySelector('#set-character')
+//     edit_character.addEventListener('dblclick', editCharacter)
+//     editBtn.addEventListener('click', editCharacter)
+// }
 
 function handleUpdateCharacter(e){
     e.preventDefault()
-    let newName = edit_character.querySelector('#edit-name').value
-    let newKO = edit_character.querySelector('#edit-knockout_phrase').value
-    let updateAvatar = {id: selectedAvatar.id, name: newName, knockout_phrase: newKO}
-    updateCharacter(updateAvatar)
+    let newName = document.querySelector('#edit-name').value
+    let newKO = document.querySelector('#updated-knockout').value
+    let updatedInfo = {id: viewingAvatar.id, name: newName, knockout_phrase: newKO}
+    updateAvatar(updatedInfo)
 }
 
 function headshaking(){

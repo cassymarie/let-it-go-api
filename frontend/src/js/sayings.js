@@ -16,9 +16,8 @@ function createSaying(newSaying){
     fetch(`${base_url}avatars/${selectedAvatar.id}/sayings`, configObj)
         .then(response => response.json())
         .then(json => {
-            selectedAvatar.my_sayings.push(json)
-            edit_sayings.innerHTML = ""
-            selectedAvatar.renderEdit()
+            viewingAvatar.my_sayings.push(json)
+            viewingAvatar.updateSayingsList()
       })
 }
 
@@ -36,7 +35,6 @@ function updateSaying(saying){
     fetch(`${base_url}avatars/${selectedAvatar.id}/sayings/${saying.id}`, configObj)
         .then(response => response.json())
         .then(json => {
-            edit_sayings.innerHTML = ""
             viewingAvatar.updateSayingsList()
       })
 }
@@ -55,10 +53,7 @@ function deleteSaying(saying){
     fetch(`${base_url}avatars/${selectedAvatar.id}/sayings/${saying.id}`, configObj)
         .then(response => response.json())
         .then(json => {
-            
-            selectedAvatar.my_sayings = json 
-            edit_sayings.innerHTML = ""
-            selectedAvatar.renderEdit()
+            viewingAvatar.updateSayingsList()
       })
 }
 
