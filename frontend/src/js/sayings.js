@@ -71,8 +71,8 @@ function handleSayingClick(){
     if (btnType === 'edit'){
         saying.parentElement.innerHTML  = `
             <textarea class="avatar-saying form-control" rows="4" id="update-name">${selected.phrase}</textarea>
-            <button id="update-${selected.id}" class="crud-btn" value="update">
-                <i class="bi-check" value="update"></i>
+            <button id="update-${selected.id}" class="add-btn" value="update">
+                <i class="bi-check add-btn" value="update"></i>
             </button>
         `  
     } else if (btnType === 'delete'){

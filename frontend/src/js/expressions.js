@@ -8,10 +8,12 @@ let executeInterval = false
 class Expression{
     static all = [];
 
-    constructor({id, description, imageUrl}){
+    constructor({id, title, imageUrl, face_id, category}){
         this.id = id
-        this.description = description
+        this.title = title
         this.imageUrl = imageUrl
+        this.face_id = face_id
+        this.category = category
         Expression.all.push(this)
     }
 }

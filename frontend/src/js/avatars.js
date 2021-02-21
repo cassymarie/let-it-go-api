@@ -49,6 +49,7 @@ class Avatar{
         polaroid_image.style.backgroundImage = `url(src/images/characters/${this.image})`
         polaroid_saying.innerHTML = `
         <div class="knockout-saying">${this.knockout_phrase}</div>`
+        btn_selectAvatar.innerHTML = `Select <br> ${viewingAvatar.name}`
     }
 
     editPolaroid(){
@@ -80,6 +81,7 @@ class Avatar{
             `
             edit_sayings.appendChild(ele)
             hideAddSaying()
+            
         })
     }
 
@@ -141,6 +143,15 @@ function selectAvatar(e){
     viewingAvatar = Avatar.all.find(x => x.id === avatarId)
     viewingAvatar.updatePolaroid()
     viewingAvatar.updateSayingsList()
+}
+
+
+function chooseAvatar(){
+    selectedAvatar = {...viewingAvatar}
+    getItems()
+    avatarConfig.style.display = 'none'
+    battleground.style.display = 'block'
+    // getExpressions()
 }
 
 function showAvatarPic(e){

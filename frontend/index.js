@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 btn_signin.addEventListener('click', handleSigninClick)
-
+btn_selectAvatar.addEventListener('click', chooseAvatar)
 usersAvatars.addEventListener('mouseover', hideDirections)
 
 function randomNumber(max){
