@@ -25,7 +25,7 @@ function createUser(newUser){
                 const obj = new Avatar(avatar.attributes)
                 obj.attachToSelectionList()
             })
-            showBattleground()
+            showAvatars()
       })
 }
 
@@ -47,11 +47,11 @@ function handleSigninClick(e){
 }
 
 // Displays the div:battleground
-function showBattleground(){
+function showAvatars(){
     pageBody.className = 'background-drip'
     startup.style.display = 'none'
     avatarConfig.style.display = 'flex'
-    // battleground.style.display = 'block'
     usersAvatars.style.display = 'block'
+    avatarProfile.style.display = 'none'
     navBar.style.display = 'none'
 }

@@ -44,12 +44,12 @@
 
     <div class="container-fluid avatar-config"  style="display: none;">
         <div class="container-fluid users-avatars">
-            <h5>Hover to View</h5>
             <div class='avatars-list'>
             </div>
         </div>
+        <div class="directions-select"> Hover over a Character to view....<br> Click to Modify and Select</div>
         <div class="avatar-profile">
-                <div class="polaroid">
+                <div class="polaroid" style="display: none;">
                     <div class="name-title">
                     </div>
                     <div class="polaroid-avatar">  
@@ -60,9 +60,9 @@
                     <div class="polaroid-knockout">
                     </div>
                 </div>
-                <div class="avatar-sayings">
-                    <div>Ugh, this guy!</div> 
-                    <div>Running his mouth off saying stuff like...</div>
+                <div class="avatar-sayings" style="display: none;">
+                    <div class="sayings-titles main-title">Ugh, this guy!</div> 
+                    <div class="sayings-titles sub-title ">Running his mouth off saying stuff like...</div>
                     <div id="edit-sayings">       
                         <div class="saying-list">
                         </div>
@@ -70,6 +70,7 @@
                     <div id="add-saying">
     
                     </div>
+                    <btn id="select-avatar">Select This Guy</btn>
                 </div>
         </div>
     </div>

@@ -16,8 +16,7 @@
 
 .users-avatars{
     width: 15%;
-    background-color: deepskyblue;
-    border: black 1px solid;
+    padding: 10px;
     overflow: scroll;
 }
 
@@ -26,10 +25,19 @@
     border: black 2px solid;
     width: 100px;
     height: 100px;
-    margin: auto;
+    margin: 10px;
     border-radius: 50%;
     background-color: (228, 228, 220);
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.50)
+}
+
+.directions-select{
+    width: 85%;
+    font-size: 50px;
+    color: rgb(58, 6, 126);
+    display: block;
+    padding: 10px;
+    margin: auto;
 }
 
 .avatar-profile{
@@ -67,8 +75,8 @@
     min-height: 515px;
     height: fit-content;
     padding: 25px;
-    margin:3%;
-    margin-top: 0%;
+    margin: auto;
+    padding-bottom: 0%;
     padding-top: 5px;
     border: 1px solid black;
 }
@@ -81,6 +89,7 @@
     width: 400px;
     height: 400px;
     margin: auto;
+    margin-top: 0%;
     padding: 0px;
     box-shadow: inset 0 0 5px #000000;
     background-color: rgb(228, 228, 220);
@@ -120,12 +129,33 @@
 /* =================
     Avatars Sayings 
 ===================*/
+
+.sayings-titles{
+    border: black 1px solid;
+    background-color: deepskyblue;
+    text-align: left;
+    padding-left: 10px;
+    color:white;
+    text-shadow: 1px 0px 1px rgb(0, 0, 0), 0px 1px 1px rgb(0, 0, 0);
+} 
+
+.main-title{
+    border-bottom: none;
+    font-size: xx-large;
+    font-style: italic;
+}
+
+.sub-title{
+    border-top: none;
+    font-size: large;
+    font-style: italic;
+}
+
 .avatar-sayings{
     width: 100%;
-    background-color: rgba(61, 9, 121, 0.6);
-    color: white;
-    border: black 1px solid;
-    padding: auto;
+    /* color: white; */
+    padding: 10px;
+    margin-left: 3%;
 }
 
 #edit-sayings{
@@ -140,16 +170,17 @@
     padding: 5px;
     text-align: center;
     height: fit-content;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.75);
     border-bottom: darkblue 1px solid;
 }
 
 .avatar-saying{
     text-align: left;
+    background-color: none;
     padding:auto;
     width: 100%;
     font-size: 20px;
-    color: purple;
+    color: darkslateblue;
 }
 
 .crud-btn{
@@ -164,6 +195,42 @@
 }
 
 #add-saying{
-    border: black 1px solid;
-    height: 20%;
+    min-height: 40px;
+    padding: 0px;
+    text-align: left;
+    height: fit-content;
+}
+
+#select-avatar{
+    background-color: darkorange;
+    color: white;
+    font-family: 'Rancho', cursive;
+    padding: 3%;
+    font-size: xx-large;
+    text-align: center;
+    border: 1px black solid;
+    text-shadow:
+    1px 0px 1px rgb(0, 0, 0), 0px 1px 1px rgb(0, 0, 0),
+    2px 1px 1px rgb(0, 0, 0), 1px 2px 1px rgb(0, 0, 0);
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.50)
+}
+
+.add-btn{
+    background-color: deepskyblue;
+    padding: 3px;
+    border: 1px solid darkslateblue;
+    border: none;
+    color: white;
+    font-size: 16px;
+    float: right;
+}
+
+.submit-avatar{
+    background-color: white;
+    border: none;
+    height: fit-content;
+    width: fit-content;
+    color: darkslateblue;
+    font-size: 50px;
+    float: right;
 }

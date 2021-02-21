@@ -13,7 +13,7 @@ function createSaying(newSaying){
         body: JSON.stringify(newSaying)
       }
 
-    fetch(`${base_url}avatars/${selectedAvatar.id}/sayings`, configObj)
+    fetch(`${base_url}avatars/${viewingAvatar.id}/sayings`, configObj)
         .then(response => response.json())
         .then(json => {
             viewingAvatar.my_sayings.push(json)
@@ -32,7 +32,7 @@ function updateSaying(saying){
         body: JSON.stringify({ saying })
       }
 
-    fetch(`${base_url}avatars/${selectedAvatar.id}/sayings/${saying.id}`, configObj)
+    fetch(`${base_url}avatars/${viewingAvatar.id}/sayings/${saying.id}`, configObj)
         .then(response => response.json())
         .then(json => {
             viewingAvatar.updateSayingsList()
@@ -50,7 +50,7 @@ function deleteSaying(saying){
         body: JSON.stringify({ saying })
       }
 
-    fetch(`${base_url}avatars/${selectedAvatar.id}/sayings/${saying.id}`, configObj)
+    fetch(`${base_url}avatars/${viewingAvatar.id}/sayings/${saying.id}`, configObj)
         .then(response => response.json())
         .then(json => {
             viewingAvatar.updateSayingsList()
@@ -86,21 +86,23 @@ function handleSayingClick(){
 
 function hideAddSaying(){
     add_saying.innerHTML = `
-    <button  type="submit" id="add-saying" class="crud-btn" value="add">
-        <i class="bi-plus-square-fill crud-btn" value="add"></i>
+    <button  type="submit" id="new-saying" class="crud-btn" value="add">
+        <i class="bi-plus-square-fill crud-btn" value="add"> New Saying</i>
     </button>
 `
-    let addBtn = add_saying.querySelector('#add-saying')
+    let addBtn = add_saying.querySelector('#new-saying')
     addBtn.addEventListener('click', showAddSaying)
+    btn_selectAvatar.style.display = 'block'
 }
 
 function showAddSaying() {
     add_saying.innerHTML = `
         <textarea class="form-control" rows="3" id="new-phrase" placeholder="Add phrase here..."></textarea>
-        <button type="submit" id="submit-saying" class="crud-btn" value="update">
-            <i class="bi-check crud-btn" value="update"></i>
+        <button type="submit" id="submit-saying" class="add-btn" value="update">
+            <i class="bi-check add-btn" value="update"> Create</i> 
         </button>
     `
+    btn_selectAvatar.style.display = 'none'
     let addBtn = add_saying.querySelector('#submit-saying')
     addBtn.addEventListener('click', handleAddSaying)
 }
@@ -108,7 +110,7 @@ function showAddSaying() {
 function handleAddSaying(e){
     e.preventDefault()
     let newPhrase = add_saying.querySelector('#new-phrase')
-    let addSaying = {phrase: newPhrase.value, character_id: selectedAvatar.id}
+    let addSaying = {phrase: newPhrase.value, avatar_id: viewingAvatar.id}
     createSaying(addSaying)
 }
 //------------------------------------

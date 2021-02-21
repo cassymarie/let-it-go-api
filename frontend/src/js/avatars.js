@@ -25,6 +25,8 @@ class Avatar{
     // Initial Character Selection w/ event
     renderSelection(){
         this.element.addEventListener('click', selectAvatar)
+        this.element.addEventListener('mouseover', showAvatarPic)
+
         this.element.style.backgroundImage = `url(src/images/characters/${this.image})`
         this.element.id = this.id
         this.element.className = 'sml-avatar'
@@ -38,10 +40,12 @@ class Avatar{
     }
 
     updatePolaroid(){
-        polaroid_name.innerHTML = `
-        ${this.name} <button id="edit-avatar" class="name-edit" value="update"><i class="bi-pencil-fill" value="update"></i>
-            </button>`
-        polaroid_name.querySelector("#edit-avatar").addEventListener('click', showEditAvatar)
+        if (hoverAvatar === '') {
+            polaroid_name.innerHTML = `${this.name} <button id="edit-avatar" class="name-edit" value="update"><i class="bi-pencil-fill" value="update"></i> </button>`
+            polaroid_name.querySelector("#edit-avatar").addEventListener('click', showEditAvatar)
+        } else { polaroid_name.innerHTML = `${this.name}`}
+        
+        polaroid.style.display = 'block'
         polaroid_image.style.backgroundImage = `url(src/images/characters/${this.image})`
         polaroid_saying.innerHTML = `
         <div class="knockout-saying">${this.knockout_phrase}</div>`
@@ -54,14 +58,15 @@ class Avatar{
         polaroid_saying.innerHTML = `
             <div class="knockout-title">Knockout Phrase</div>
             <textarea class="form-control knockout-saying" id="updated-knockout">${this.knockout_phrase}</textarea>
-            <button type="submit" id="submit-avatar" class="crud-btn" value="update">
-                <i class="bi-check crud-btn" value="update"></i>
+            <button type="submit" id="submit-avatar" class="submit-avatar" value="update">
+                <i class="bi-check submit-avatar" value="update"></i>
             </button>`
 
         document.querySelector('#submit-avatar').addEventListener('click', handleUpdateCharacter)
     }
 
     updateSayingsList(){
+        avatarSayings.style.display = 'block'
         edit_sayings.innerHTML = ''
         this.my_sayings.forEach(saying => {
             const ele = document.createElement('div')
@@ -84,24 +89,6 @@ class Avatar{
         my_avatar.parentElement.style.display = 'block'
         // getFace('happy')
     }
-
-    // Renders Edit section (does not Show) - add all sayings with buttons
-    // renderPortfolio(){
-    //     setCharacter() 
-    //     edit_sayings.innerHTML = ""      
-    //     this.my_sayings.forEach(saying => {
-    //         const ele = document.createElement('div')
-    //         ele.className = 'saying-list'
-    //         ele.id = `${saying.id}`
-    //         ele.addEventListener('click',handleSayingClick)
-    //         ele.innerHTML = `
-    //             <p>${saying.phrase}</p>
-    //             <button id="edit-${saying.id}" class="crud-btn" value="edit"><i class="bi-pencil crud-btn" value="edit"></i></button>
-    //             <button id="delete-${saying.id}" class="crud-btn" value="delete"><i class="bi-trash crud-btn" value="delete"></i></button>
-    //         `
-    //         edit_sayings.appendChild(ele)
-    //     })
-
 
     randomSaying(){
         let phraseList = this.my_sayings.map((saying)=>saying.phrase)
@@ -149,41 +136,28 @@ fetch(`${base_url}avatars/${myAvatar.id}`, configObj)
 // (Click) to Select Avatar
 // - fetch data / render
 function selectAvatar(e){
+    hoverAvatar = ''
     let avatarId = parseInt(e.target.id)
     viewingAvatar = Avatar.all.find(x => x.id === avatarId)
     viewingAvatar.updatePolaroid()
     viewingAvatar.updateSayingsList()
 }
 
-// show edit section / hide item selection
-function showEditAvatar(){
-    viewingAvatar.editPolaroid()
+function showAvatarPic(e){
+    let avatarId = parseInt(e.target.id)
+    viewingAvatar = ''
+    hoverAvatar = Avatar.all.find(x => x.id === avatarId)
+    hideDirections()
+    avatarSayings.style.display = 'none'
+    // debugger
+    hoverAvatar.updatePolaroid()
 }
 
-// function editCharacter(){
-//     edit_character.innerHTML = `
-//     <input type="text" name="image" value="${selectedAvatar.name}" id="edit-name" class="form-control"/>
-//     <input type="text" name="image" value="${selectedAvatar.knockout_phrase}" id="edit-knockout_phrase" class="form-control"/>
-//     <button id="update-character" class="crud-btn" value="update">
-//         <i class="bi-check crud-btn" value="update"></i>
-//     </button>
-// `
-//     edit_character.querySelector('#update-character').addEventListener('click', handleUpdateCharacter)
-    
-// }
+// show edit section / hide item selection
+function showEditAvatar(){
 
-// function setCharacter() {
-//     edit_character.innerHTML = `
-//         <h3 class="edit-character-info">${selectedAvatar.name}</h3>
-//         <p class="edit-character-info">${selectedAvatar.knockout_phrase}</p>
-//         <button id="set-character" class="crud-btn set-character" value="update">
-//             <i class="bi-pencil crud-btn" value="update"></i>
-//         </button>
-//     `
-//     let editBtn = edit_character.querySelector('#set-character')
-//     edit_character.addEventListener('dblclick', editCharacter)
-//     editBtn.addEventListener('click', editCharacter)
-// }
+    viewingAvatar.editPolaroid()
+}
 
 function handleUpdateCharacter(e){
     e.preventDefault()
