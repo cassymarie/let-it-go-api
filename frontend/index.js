@@ -15,14 +15,13 @@ const polaroid = document.querySelector('.polaroid')
 const polaroid_name = document.querySelector('.name-title')
 const polaroid_image = document.querySelector('.polaroid-avatar')
 const polaroid_saying = document.querySelector('.polaroid-knockout')
-const edit_avatar = document.querySelector('#edit-avatar')
 
 const btn_selectAvatar = document.querySelector('#select-avatar')
-const items = document.querySelector('#container-items')
+const items = document.querySelector('#items-list')
 const battleground = document.querySelector('.battle-ground')
 const saying = document.querySelector('#sayings-here')
-const my_avatar = document.querySelector('#selected-charcter')
-const edit_info = document.querySelector('#edit-info')
+const avatar = document.querySelector('#avatar')
+
 const edit_sayings = document.querySelector('#edit-sayings')
 const add_saying = document.querySelector('#add-saying')
 const change_character = document.querySelector('#change-avatar')
@@ -43,7 +42,7 @@ let currUser = ''
 document.addEventListener("DOMContentLoaded", () => {
     // getAvatars()
     // getItems()
-    // getExpressions()
+    getExpressions()
 })
 
 btn_signin.addEventListener('click', handleSigninClick)

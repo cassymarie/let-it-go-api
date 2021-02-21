@@ -74,7 +74,7 @@ function clearItem(){
     thrown_item.style.backgroundImage = ``
     thrown_item.className = ``
     thrown_item.style.display = `none`
-    my_avatar.className = 'animate__animated animate__bounceIn'
+    avatar.className = 'animate__animated animate__bounceIn'
 }
 
 function hitAvatar(){

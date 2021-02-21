@@ -8,7 +8,7 @@ const base_url = 'http://localhost:3000/'
 class Avatar{
     static all = [];
 
-    constructor({id, name, knockout_phrase, face_id, character_id, my_sayings, image, title}){
+    constructor({id, name, knockout_phrase, face_id, character_id, my_sayings, image, title, initialPic}){
         this.id = id
         this.name = name
         this.knockout_phrase = knockout_phrase
@@ -18,6 +18,7 @@ class Avatar{
         this.my_sayings = my_sayings
         this.image = image
         this.title = title
+        this.initialPic = initialPic
         Avatar.all.push(this)
         this.element = document.createElement('div')
     }
@@ -40,12 +41,18 @@ class Avatar{
     }
 
     updatePolaroid(){
+        let picClassName = ''
         if (hoverAvatar === '') {
+            picClassName = 'polaroid'
             polaroid_name.innerHTML = `${this.name} <button id="edit-avatar" class="name-edit" value="update"><i class="bi-pencil-fill" value="update"></i> </button>`
             polaroid_name.querySelector("#edit-avatar").addEventListener('click', showEditAvatar)
-        } else { polaroid_name.innerHTML = `${this.name}`}
+        } else { 
+            picClassName = 'polaroid  hover-view'
+            polaroid_name.innerHTML = `${this.name}`
+        }
         
         polaroid.style.display = 'block'
+        polaroid.className = picClassName
         polaroid_image.style.backgroundImage = `url(src/images/characters/${this.image})`
         polaroid_saying.innerHTML = `
         <div class="knockout-saying">${this.knockout_phrase}</div>`
@@ -87,8 +94,9 @@ class Avatar{
 
     // Render Selected Character to 'Battleground' - show/hide respective div's
     renderImage(){
-        // my_avatar.style.backgroundImage = `url(src/images/characters/${this.imageUrl})`
-        my_avatar.parentElement.style.display = 'block'
+        avatar.style.backgroundImage = `url(src/images/characters/${this.imageUrl})`
+        
+        avatar.parentElement.style.display = 'block'
         // getFace('happy')
     }
 
@@ -145,13 +153,12 @@ function selectAvatar(e){
     viewingAvatar.updateSayingsList()
 }
 
-
 function chooseAvatar(){
     selectedAvatar = {...viewingAvatar}
     getItems()
     avatarConfig.style.display = 'none'
+    pageBody.className = 'background-lower'
     battleground.style.display = 'block'
-    // getExpressions()
 }
 
 function showAvatarPic(e){
@@ -160,7 +167,6 @@ function showAvatarPic(e){
     hoverAvatar = Avatar.all.find(x => x.id === avatarId)
     hideDirections()
     avatarSayings.style.display = 'none'
-    // debugger
     hoverAvatar.updatePolaroid()
 }
 
@@ -179,26 +185,26 @@ function handleUpdateCharacter(e){
 }
 
 function headshaking(){
-    my_avatar.className = 'animate__animated animate__rubberBand'
+    avatar.className = 'animate__animated animate__rubberBand'
     getFace('rage')
     setTimeout(resetAvatar, 1000);
 }
 
 function getNervous(){
     // animate__shakeX
-    my_avatar.className = 'animate__animated animate__pulse'
+    avatar.className = 'animate__animated animate__pulse'
     face.className = 'animate__animated animate__pulse'
     setTimeout(resetExpression, 1000);
 }
 
 function resetAvatar(){
-    my_avatar.style.backgroundImage = ``
-    my_avatar.className = ``
+    avatar.style.backgroundImage = ``
+    avatar.className = ``
 }
 
 function resetExpression(){
     face.className = ``
-    my_avatar.className = ``
+    avatar.className = ``
 }
 
 function changeCharacter(){

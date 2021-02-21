@@ -20,6 +20,7 @@
     <!-- api Files  -->
     <link rel="stylesheet" href="src/css/signin.css" />
     <link rel="stylesheet" href="src/css/avatar_config.css" />
+    <link rel="stylesheet" href="src/css/battleground.css" />
     <link rel="stylesheet" href="style.css" />
     
     <title> 🎯 Let it Go </title>
@@ -77,18 +78,12 @@
 
    <!-- 'Battleground: Avatar & edit / Items ' --> 
     <div class="battle-ground" style="display: none;">  
-        <div class="container-fluid users-avatars">
-            <div class="h6">View a Character </div>
-            
-            <div class="characters row" id="container-charcters"></div>
-        </div>
         <div class="nav-bar"  style="display: flex">
             <button id='change-avatar' class='nav-btn'>Change Character</button>
                 <div class='nav-title'>Let it go on <strong>This Guy!</strong></div>
-            <button id='edit-avatar' class='nav-btn'>Edit Character</button>
         </div>
         <!-- Selected Avatar Container --> 
-        <div class="container-fluid avatar"> 
+        <div class="avatar"> 
             <div id="speech-bubble"  style="display: none;">
                 <div id="sayings-here" class="speech">     
                    <!-- Random Saying Goes HERE -->
@@ -98,10 +93,13 @@
             </div>
             
             
-            <div id="selected-charcter"> 
+            <div id="avatar"> 
                 <!-- SelectedAvatar: BackgroundImage --> 
-                <div id="expressions" style="display: block;">
+                <div id="face" style="display: block;">
                     <!-- FACE -->
+                </div>
+                <div id="throw" style="display: none;">
+                    <!-- THROW -->
                 </div>
                 <div id="splat" style="display: none;">
                     <!-- SPLAT -->
@@ -113,26 +111,11 @@
             </div>
         </div>
 
-        <!-- Edits Container
-        <div class="container-fluid" style="display: none;">
-            <h2>Edit Character<button id="close-edit" type="button" class="btn-close" aria-label="Close"></button></h2>
-            <div id="edit-info"> 
-                <div id="edit-character" class="container-fluid">
-
-                </div>
-                <div id="edit-sayings">
-                    
-                </div>
-                <div id="add-saying">
-
-                </div>
-            </div>
-        </div> -->
 
         <!-- Item Selection Container -->
-        <div class="container-fluid">   
+        <div class="items-section">   
             <div  class="sect_label" >Select an Item to Throw</div>
-            <div class="row" id="container-items">
+            <div class="row" id="items-list">
 
             </div>
         </div>

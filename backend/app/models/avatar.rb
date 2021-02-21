@@ -1,6 +1,7 @@
 class Avatar < ApplicationRecord
     belongs_to :user
     belongs_to :character
+    belongs_to :face
     has_many :sayings
 
         
@@ -12,6 +13,10 @@ class Avatar < ApplicationRecord
 
     def image
         self.character.imageUrl
+    end
+
+    def initialPic
+        self.face.initial
     end
 
     def title

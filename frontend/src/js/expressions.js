@@ -18,14 +18,28 @@ class Expression{
     }
 }
 
+class Face{
+    static all = [];
+    constructor({id, name, initial}){
+        this.id = id
+        this.name = name
+        this.initial = initial
+        Face.all.push(this)
+    }
+}
+
 // ------------------------------------------------------------------
 // CRUD
 // ------------------------------------------------------------------
 function getExpressions(){
-    fetch(`${base_url}expressions`)
+    fetch(`${base_url}faces`)
     .then(resp => resp.json())
     .then(json => {
-        json.forEach(face => {new Expression(face)})
+
+        json.data.forEach(face => {
+            new Face(face.attributes)
+        })
+        json.included.forEach(expression => {new Expression(expression.attributes)})
     })
 }
 

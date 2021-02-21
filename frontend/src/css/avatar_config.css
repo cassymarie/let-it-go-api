@@ -81,6 +81,9 @@
     border: 1px solid black;
 }
 
+.hover-view{
+    margin-right: 45%;
+}
 
 .polaroid-avatar{
     background-image: url('../images/characters/politician.png');

@@ -1,0 +1,132 @@
+
+.progress{
+    padding: 0px;
+}
+
+.progress-bar{
+    margin: 0;
+}
+
+#expressions{
+    margin: 140px;
+    margin-top: 180px;
+    width: 220px;
+    height: 220px;
+    background-size: 100%;
+    position: absolute;
+    border: none;
+}
+
+#splat{
+    margin: 0;
+    width: 500px;
+    height: 500px;
+    background-size: 100%;
+    border: none;
+}
+
+#items-list {
+    background-color: lightpink;
+    margin: auto;
+    height: fit-content;
+}
+
+.sect_label{
+    font-size: x-large;
+}
+.background-lower{ 
+    background: url(../images/paint_splatter3.png) no-repeat top left fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100% 100%;
+    text-align: center;
+    vertical-align: baseline;
+  }
+
+#speech-bubble{
+    max-width: 30%;
+    margin-top: 1%;
+    position: absolute;
+    padding: 0;
+    text-align: right;
+    margin-left: 2.5%;
+}
+
+#sayings-here{
+    background-color: white;
+    color:black;
+    padding: 40px;
+    width: fit-content;
+    max-width: 95%;
+    text-align: center;
+    font-size: xx-large;
+    margin-right: 20px;
+    border: 1px, black solid;
+    border-radius: 25%;
+    height: fit-content;
+    box-shadow: 5px 5px 15px -5px rgba(0,0,0,0.50);
+}
+.speech{
+    font-family: 'Long Cang', cursive;
+
+}
+
+.bubble{
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    margin: auto;
+    text-align: right;
+    border: 1px, solid, black;
+    box-shadow: 5px 5px 15px 1px rgba(0,0,0,0.50);
+}
+.pos-1{
+    text-align: right;
+    margin-right: 15px;
+    margin-bottom: 5px;
+}
+.pos-2{
+    text-align: right;
+    margin-right: 0px;
+}
+
+.select-item{
+    padding: 0px;
+    margin: auto;
+}
+
+#avatar {
+    background-size: 100%;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    padding: 0px;
+    border: none;
+}
+
+.battle-ground{
+    /* background-color: blanchedalmond; */
+    display: flex;
+}
+
+.nav-bar {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-btn{
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+    font-size: 20px;
+    background-color: turquoise;
+}
+
+.nav-title{
+    text-align: center;
+    margin: auto;
+    font-size: 40px;
+}
