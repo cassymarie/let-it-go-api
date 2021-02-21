@@ -27,7 +27,6 @@ class Avatar{
     renderSelection(){
         this.element.addEventListener('click', selectAvatar)
         this.element.addEventListener('mouseover', showAvatarPic)
-
         this.element.style.backgroundImage = `url(src/images/characters/${this.image})`
         this.element.id = this.id
         this.element.className = 'sml-avatar'
@@ -53,6 +52,7 @@ class Avatar{
         
         polaroid.style.display = 'block'
         polaroid.className = picClassName
+        polaroid_expression.style.backgroundImage = `url(src/images/expressions/${this.face_id}/${this.initialPic}.png)`
         polaroid_image.style.backgroundImage = `url(src/images/characters/${this.image})`
         polaroid_saying.innerHTML = `
         <div class="knockout-saying">${this.knockout_phrase}</div>`
@@ -113,7 +113,8 @@ function getAvatars(){
     fetch(`${base_url}avatars`)
     .then(resp => resp.json())
     .then(json => {
-        json.data.forEach(character => {
+        debugger
+        json.data.forEach(character => {  
             const avatar = new Avatar(character.attributes)
             avatar.attachToSelectionList()
         })

@@ -1,5 +1,6 @@
 class Character < ApplicationRecord
     has_many :sayings
+    belongs_to :face
     
     def my_sayings
         list = []

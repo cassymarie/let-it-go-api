@@ -2,47 +2,44 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 
+face1 = Face.create(name: "That Person", initial: 'angry/angry')
+face2 = Face.create(name: "Big Eyed Bubba", initial: 'angry/angry')
+face3 = Face.create(name: "Tweety", initial: 'angry/angry')
+face4 = Face.create(name: "Lil Fella", initial: 'angry/angry')
 
-frankie = Character.create(title: 'sinatra', imageUrl: "sinatra.png")
+frankie = Character.create(title: 'sinatra', imageUrl: "sinatra.png", face_id: 3)
 frankie.sayings << Saying.create(phrase: "flash[:error]='You have no right to be here!'")
 frankie.sayings << Saying.create(phrase: "<= nil")
 frankie.sayings << Saying.create(phrase: "Hello World") 
 
-ruby = Character.create(title: 'ruby', imageUrl: "ruby.png")
+ruby = Character.create(title: 'ruby', imageUrl: "ruby.png", face_id: 1)
 ruby.sayings << Saying.create(phrase: "NameError: undefined local variable or method")
 ruby.sayings << Saying.create(phrase: "SyntaxError: unexpected keyword_end, expecting ‘}’")
 ruby.sayings << Saying.create(phrase: "ArgumentError: wrong number of arguments (given 1, expected 0)")
 ruby.sayings << Saying.create(phrase: "FatalError: unexpected everything")
 
-java = Character.create(title: 'javascript', imageUrl: "javascript.png")
+java = Character.create(title: 'javascript', imageUrl: "javascript.png", face_id: 4)
 java.sayings << Saying.create(phrase: "Uncaught TypeError: Cannot read property")
 java.sayings << Saying.create(phrase: "(unknown): Script error")
 java.sayings << Saying.create(phrase: "undefined") 
 java.sayings << Saying.create(phrase: "ReferenceError: event is not defined") 
 
-baby = Character.create(title: 'baby', imageUrl: "baby.png")
-baby.sayings << Saying.create(phrase: "Waaaaaaaa Waaaaaaaa") 
 
-monster = Character.create(title: 'monster', imageUrl: "monster.png")
+monster = Character.create(title: 'monster', imageUrl: "monster.png", face_id: 2)
 monster.sayings << Saying.create(phrase: "I need a cookie")
 monster.sayings << Saying.create(phrase: "AAARRRRHHHHGGGGHHH!!!!!")
 monster.sayings << Saying.create(phrase: "I'm gonna hide under your bed tonight!") 
 
-nancy = Character.create(title: 'know-it-all', imageUrl: "know_it_all.png")
+nancy = Character.create(title: 'know-it-all', imageUrl: "know_it_all.png", face_id: 3)
 nancy.sayings << Saying.create(phrase: "Do you have a permit for that?")
 nancy.sayings << Saying.create(phrase: "I'm filming you, this is illegal!")
 nancy.sayings << Saying.create(phrase: "I'm calling the manager!")
 nancy.sayings << Saying.create(phrase: "Let me see your id!")
 
-ronald = Character.create(title: 'politician', imageUrl: "politician.png")
+ronald = Character.create(title: 'politician', imageUrl: "politician.png", face_id: 2)
 ronald.sayings << Saying.create(phrase: "There is nobody better than me!")
 ronald.sayings << Saying.create(phrase: "I'm the smartest person EVER!")
 ronald.sayings << Saying.create(phrase: "You're a Loser!")
-
-face1 = Face.create(name: "That Person", initial: 'smile')
-face2 = Face.create(name: "Big Eyed Bubba", initial: 'big_smile')
-face3 = Face.create(name: "Tweety", initial: 'smirk')
-face4 = Face.create(name: "Lil Fella", initial: 'smile')
 
 
 list = [

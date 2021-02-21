@@ -4,7 +4,7 @@ class CreateAvatars < ActiveRecord::Migration[6.1]
       t.belongs_to :user
       t.belongs_to :character
       t.string :name
-      t.integer :face_id, :default => 4
+      t.integer :face_id
       t.string :knockout_phrase
       t.timestamps
     end

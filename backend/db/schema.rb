@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_02_21_221630) do
     t.bigint "user_id"
     t.bigint "character_id"
     t.string "name"
-    t.integer "face_id", default: 4
+    t.integer "face_id"
     t.string "knockout_phrase"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_02_21_221630) do
 
   create_table "characters", force: :cascade do |t|
     t.string "title"
+    t.integer "face_id"
     t.string "imageUrl"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

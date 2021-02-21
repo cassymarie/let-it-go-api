@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
     def create_avatars
         Character.all.each do |c|
-            avatar = Avatar.create(character_id: c.id, name: c.title.capitalize, knockout_phrase: 'You are the Best! I am Sorry for doubting you.')
+            avatar = Avatar.create(character_id: c.id, name: c.title.capitalize, knockout_phrase: 'You are the Best! I am Sorry for doubting you.', face_id: c.face_id)
             c.sayings.each do |s|
                 avatar.sayings << Saying.create(phrase: s.phrase)
             end
