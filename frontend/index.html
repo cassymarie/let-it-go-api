@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet">
     <!-- api Files  -->
     <link rel="stylesheet" href="src/css/signin.css" />
+    <link rel="stylesheet" href="src/css/avatar_config.css" />
     <link rel="stylesheet" href="style.css" />
     
     <title> 🎯 Let it Go </title>
@@ -27,7 +28,7 @@
     
     <!-- Initial (div) / Instructions & SignIn -->
     <div class="startup">
-        <div class="intro-questions">Tired of writing tons of code and getting errors all day long!?! <br> Annoyed by a know-it-all neighbor??  <br>  Disagree with your manager or politician?  <br> Baby keeping you up and giving you a headache?? </div>
+        <div class="intro-questions">Tired of writing tons of code and getting errors all day long!?! <br> Annoyed by a know-it-all neighbor??  <br>  Disagree with your manager or politician?</div>
 
         <div class="intro-description"> 
             <h2>Let It Go!!!!</h2>
@@ -38,6 +39,49 @@
             <input type="text" id="new-username" placeholder="Username here">
             <div id="signin-error"></div>
             <button id="btn-signin">Enter</button>
+        </div>
+    </div>
+
+    <div class="container-fluid avatar-config"  style="display: none;">
+        <div class="container-fluid users-avatars">
+            <h5>Hover to View</h5>
+            <div class='avatars-list'>
+            </div>
+        </div>
+        <div class="avatar-profile">
+
+                <div class="polaroid">
+                    <div class="name-title"> Trump 
+                        <button id="set-character" class="name-edit set-character" value="update">
+                            <i class="bi-pencil-fill" value="update"></i>
+                        </button>
+                    </div>
+                    <div class="polaroid-avatar">  
+                        <div class="polaroid-expression" style="display: block;">
+                            <!-- FACE -->
+                        </div>
+                    </div>
+                    <div>
+                        <p></p>
+                        <p class="polaroid-knockout">You are the Best! I am Sorry for doubting you.</p>
+                    </div>
+                </div>
+                <div class="avatar-sayings">
+                    <div>Ugh, this guy!</div> 
+                    <div>Running his mouth off saying stuff like...</div>
+                    <div id="edit-sayings">       
+                        <div class="saying-list">
+                            <div class='avatar-saying'>This is an Example Phrase</div>
+
+                            <button id="edit-${saying.id}" class="crud-btn" value="edit"><i class="bi-pencil-fill crud-btn" value="edit"></i></button>
+
+                        <button id="delete-${saying.id}" class="crud-btn" value="delete"><i class="bi-trash-fill crud-btn" value="delete"></i></button>
+                        </div>
+                    </div>
+                    <div id="add-saying">
+    
+                    </div>
+                </div>
         </div>
     </div>
 

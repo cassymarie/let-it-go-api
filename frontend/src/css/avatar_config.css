@@ -1,0 +1,151 @@
+.background-drip{ 
+    background: url(../images/paint_splatter2.png) no-repeat top left fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100% 100%;
+    text-align: center;
+    vertical-align: baseline;
+  }
+
+.avatar-config {
+    margin-top: 2%;
+    display: flex;
+    height: 100%;
+}
+
+.users-avatars{
+    width: 15%;
+    background-color: deepskyblue;
+    border: black 1px solid;
+    overflow: scroll;
+}
+
+.sml-avatar{
+    background-size: cover;
+    border: black 2px solid;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-radius: 50%;
+    background-color: (228, 228, 220);
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.50)
+}
+
+.avatar-profile{
+    width: 85%;
+    display: flex;
+}
+
+/* ============
+    NAME - Edits
+==============*/
+.name-title{
+    font-family: 'Rancho', cursive;
+    text-align: center;
+    font-size: 40px;
+    margin: 0px;
+}
+
+.name-edit {
+    background-color: white;
+    padding: 0px;
+    margin-top: 5px;
+    margin-right: 4px;
+    border: none;
+    color: lightgray;
+    font-size: large;
+    float: right;
+}
+
+/* =================
+    POLAROID PHOTO 
+===================*/
+.polaroid{
+    background-color: white;
+    width: 450px;
+    min-height: 515px;
+    height: fit-content;
+    padding: 25px;
+    margin:3%;
+    padding-top: 5px;
+    border: 1px solid black;
+}
+
+
+.polaroid-avatar{
+    background-image: url('../images/characters/politician.png');
+    background-size: 100%;
+    border: 1px solid black;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    padding: 0px;
+    box-shadow: inset 0 0 5px #000000;
+    background-color: rgb(228, 228, 220);
+}
+
+.polaroid-expression{
+    background-image: url('../images/expressions/4/angry/displeased.png');
+    background-size: 100%;
+    width: 200px;
+    height: 200px;
+    margin-left: 105px;
+    margin-top: 150px;
+}
+
+.polaroid-knockout{
+    font-family: 'Rancho', cursive;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+/* =================
+    Avatars Sayings 
+===================*/
+.avatar-sayings{
+    width: 100%;
+    background-color: rgba(61, 9, 121, 0.6);
+    color: white;
+    border: black 1px solid;
+    padding: auto;
+}
+
+#edit-sayings{
+    background-color: white;
+    padding: 1%;
+}
+
+.saying-list{
+    display: flex;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    height: fit-content;
+    background-color: white;
+    border-bottom: darkblue 1px solid;
+}
+
+.avatar-saying{
+    text-align: left;
+    padding:auto;
+    width: 100%;
+    font-size: 20px;
+    color: purple;
+}
+.crud-btn{
+    background-color: white;
+    padding: 0px;
+    margin-top: 5px;
+    margin-right: 4px;
+    border: none;
+    color: rgb(187, 175, 175);
+    font-size: large;
+    /* float: right; */
+}
+
+#add-saying{
+    border: black 1px solid;
+    height: 20%;
+}

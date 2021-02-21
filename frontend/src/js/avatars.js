@@ -23,11 +23,10 @@ class Avatar{
     // Initial Character Select box w/ event
     renderSelection(){
         this.element.addEventListener('click', selectAvatar)
-        this.element.innerHTML = `<img src="src/images/characters/${this.image}" class="img-thumbnail"/>`
+        this.element.style.backgroundImage = `url(src/images/characters/${this.image})`
         this.element.id = this.id
-        this.element.className = 'col-sm select-avatar'
+        this.element.className = 'sml-avatar'
         this.element.title = `${this.name}`
-        
         return this.element
     }
     
@@ -42,9 +41,33 @@ class Avatar{
         my_avatar.parentElement.style.display = 'block'
         // getFace('happy')
     }
+    updatePolaroid(){
+        // debugger
+        polaroid.querySelector('.name-title').textContent = this.name
+        polaroid.querySelector('.polaroid-avatar').style.backgroundImage = `url(src/images/characters/${this.image})`
+        polaroid.querySelector('.polaroid-knockout').textContent = this.knockout_phrase
+    }
+
+    updateSayingsList(){
+        edit_sayings.innerHTML = ''
+        this.my_sayings.forEach(saying => {
+            const ele = document.createElement('div')
+            ele.className = 'saying-list'
+            ele.id = `${saying.id}`
+            ele.addEventListener('click',handleSayingClick)
+            ele.innerHTML = `
+                <div class="avatar-saying">${saying.phrase}</div>
+                <button id="edit-${saying.id}" class="crud-btn" value="edit"><i class="bi-pencil crud-btn" value="edit"></i></button>
+                <button id="delete-${saying.id}" class="crud-btn" value="delete"><i class="bi-trash crud-btn" value="delete"></i></button>
+            `
+            edit_sayings.appendChild(ele)
+        })
+
+    }
+
 
     // Renders Edit section (does not Show) - add all sayings with buttons
-    renderEdit(){
+    renderPortfolio(){
         setCharacter() 
         edit_sayings.innerHTML = ""      
         this.my_sayings.forEach(saying => {
@@ -88,14 +111,14 @@ function showAvatar(id){
     fetch(`${base_url}avatars/${id}`)
     .then(resp => resp.json())
     .then(json => {
-
+        debugger
 
         //Sets const obj of the selected Avatar
         let found = json.data.attributes
 
         found.character_id = json.relationships.character.data.id
 
-        debugger
+        
 
         return found
                  
@@ -132,14 +155,16 @@ fetch(`${base_url}avatars/${myAvatar.id}`, configObj)
 // (Click) to Select Avatar
 // - fetch data / render
 function selectAvatar(e){
-    let avatarId = ''
-    if (e.target.tagName === "DIV"){
-        avatarId = parseInt(e.target.id)
-    } else {
-        avatarId = parseInt(e.target.parentElement.id)
-    }
-    showBattleground()
-    showCharacter(avatarId)
+    let avatarId = parseInt(e.target.id)
+    viewingAvatar = Avatar.all.find(x => x.id === avatarId)
+    viewingAvatar.updatePolaroid()
+    viewingAvatar.updateSayingsList()
+}
+
+function listSayings(avatar){
+    avatar.my_sayings.map(saying => {
+
+    })
 }
 
 // show edit section / hide item selection
@@ -220,6 +245,3 @@ function changeCharacter(){
     selectedAvatar = ''
 }
 
-function listAvatars(){
-    
-}

@@ -48,9 +48,10 @@ function handleSigninClick(e){
 
 // Displays the div:battleground
 function showBattleground(){
-    pageBody.className = ''
+    pageBody.className = 'background-drip'
     startup.style.display = 'none'
-    battleground.style.display = 'block'
+    avatarConfig.style.display = 'flex'
+    // battleground.style.display = 'block'
     usersAvatars.style.display = 'block'
     navBar.style.display = 'none'
 }

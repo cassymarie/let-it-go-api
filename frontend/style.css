@@ -123,9 +123,7 @@ img {
     height: 20px;
 }
 
-.saying-list{
-    display: flex;
-}
+
 
 .progress{
     padding: 0px;
@@ -153,14 +151,6 @@ img {
     border: none;
 }
 
-.crud-btn{
-    background-color: red;
-    height: fit-content;
-    width: fit-content;
-    padding: 3px;
-    border: none;
-    font-size: large;
-}
 
 i {
     max-width: 100%;
