@@ -43,9 +43,13 @@ function getExpressions(){
     })
 }
 
+
+
 const getFace = function(description) {
-    let facePic = Expression.all.find(x => x.description === description)
-    // face.style.backgroundImage = `url(src/images/expressions/${facePic.imageUrl})`
+    let arr = selectedAvatar.myExpressions()
+    let pic = arr.find(x => x.title === description)
+    debugger
+    avatarFace.style.backgroundImage = `url(src/images/expressions/${pic.face_id}/${pic.category}/${pic.imageUrl})`
   }
 
 const resetFace = function(){
@@ -59,14 +63,24 @@ const scaredFace = function() {
 let startCrying = setInterval(() => {if (executeInterval){cry()}}, 1000)
 
 function cry(){
-    if (timer === 5){
-        getFace('mad')
+    if (timer === 12){
         executeInterval = false
         timer = 0
         clearInterval(startCrying)
+        avatar.className = 'animate__animated animate__bounceOut'
+
     }
-    if (timer % 2 == 0){ getFace('cry1') } 
-    else { getFace('cry2') }
+
+    if (timer < 3){
+        if (timer % 2 == 0){ getFace('quiver_1') } 
+        else { getFace('quiver_2') }} else 
+    if (timer >= 3 && timer < 7 ){
+        if (timer % 2 == 0){ getFace('tears_1') } 
+        else { getFace('tears_2') }} else 
+    if (timer >= 7 && timer < 12){
+        if (timer % 2 == 0){ getFace('cry_1') } 
+        else { getFace('cry_2') }
+    }
     timer += 1
 }
 

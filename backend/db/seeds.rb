@@ -2,10 +2,10 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 
-face1 = Face.create(name: "That Person", initial: 'angry/angry')
-face2 = Face.create(name: "Big Eyed Bubba", initial: 'angry/angry')
-face3 = Face.create(name: "Tweety", initial: 'angry/angry')
-face4 = Face.create(name: "Lil Fella", initial: 'angry/angry')
+face1 = Face.create(name: "That Person", initial: 'angry')
+face2 = Face.create(name: "Big Eyed Bubba", initial: 'angry')
+face3 = Face.create(name: "Tweety", initial: 'angry')
+face4 = Face.create(name: "Lil Fella", initial: 'angry')
 
 frankie = Character.create(title: 'sinatra', imageUrl: "sinatra.png", face_id: 3)
 frankie.sayings << Saying.create(phrase: "flash[:error]='You have no right to be here!'")
@@ -75,7 +75,7 @@ list = [
 list.each_with_index do |face, i|
     face.keys.each do |k| 
         face[k].each do |expression|
-            Expression.create(title: expression, imageUrl: '#{expression}.png', face_id:(i+1), category: k )
+            Expression.create(title: expression, imageUrl: expression + ".png", face_id:(i+1), category: k )
         end
     end
 end

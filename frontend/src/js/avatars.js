@@ -52,8 +52,8 @@ class Avatar{
         
         polaroid.style.display = 'block'
         polaroid.className = picClassName
-        polaroid_expression.style.backgroundImage = `url(src/images/expressions/${this.face_id}/${this.initialPic}.png)`
         polaroid_image.style.backgroundImage = `url(src/images/characters/${this.image})`
+        polaroid_expression.style.backgroundImage = `url(${this.initialFaceSrc()})`
         polaroid_saying.innerHTML = `
         <div class="knockout-saying">${this.knockout_phrase}</div>`
         btn_selectAvatar.innerHTML = `Select <br> ${viewingAvatar.name}`
@@ -94,15 +94,23 @@ class Avatar{
 
     // Render Selected Character to 'Battleground' - show/hide respective div's
     renderImage(){
-        avatar.style.backgroundImage = `url(src/images/characters/${this.imageUrl})`
-        
-        avatar.parentElement.style.display = 'block'
+        avatar.style.backgroundImage = `url(src/images/characters/${this.image})`
+        avatarFace.style.backgroundImage = `url(${this.initialFaceSrc()})`
+        // avatar.parentElement.style.display = 'block'
         // getFace('happy')
     }
 
     randomSaying(){
         let phraseList = this.my_sayings.map((saying)=>saying.phrase)
         return phraseList[randomNumber(phraseList.length)]
+    }
+
+    initialFaceSrc(){
+        return `src/images/expressions/${this.face_id}/angry/${this.initialPic}.png`
+    }
+
+    myExpressions(){
+        return Expression.all.filter(x => x.face_id === this.face_id)
     }
 }
 // ------------------------------------------------------------------
@@ -113,7 +121,6 @@ function getAvatars(){
     fetch(`${base_url}avatars`)
     .then(resp => resp.json())
     .then(json => {
-        debugger
         json.data.forEach(character => {  
             const avatar = new Avatar(character.attributes)
             avatar.attachToSelectionList()
@@ -155,9 +162,10 @@ function selectAvatar(e){
 }
 
 function chooseAvatar(){
-    selectedAvatar = {...viewingAvatar}
+    selectedAvatar = viewingAvatar
     getItems()
     avatarConfig.style.display = 'none'
+    selectedAvatar.renderImage()
     pageBody.className = 'background-lower'
     battleground.style.display = 'block'
 }

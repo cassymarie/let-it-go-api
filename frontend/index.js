@@ -21,12 +21,15 @@ const items = document.querySelector('#items-list')
 const battleground = document.querySelector('.battle-ground')
 const saying = document.querySelector('#sayings-here')
 const avatar = document.querySelector('#avatar')
+const avatarFace = document.querySelector('#face')
 
 const edit_sayings = document.querySelector('#edit-sayings')
 const add_saying = document.querySelector('#add-saying')
 const change_character = document.querySelector('#change-avatar')
 
-const thrown_item = document.querySelector('#splat')
+const speechBubble = document.querySelector('#speech-bubble')
+const throwedItem = document.querySelector('#throw')
+const itemSplat = document.querySelector('#splat')
 const face = document.querySelector('#expressions')
 const testing = document.querySelector('.testing')
 

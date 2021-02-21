@@ -1,39 +1,3 @@
-
-.progress{
-    padding: 0px;
-}
-
-.progress-bar{
-    margin: 0;
-}
-
-#expressions{
-    margin: 140px;
-    margin-top: 180px;
-    width: 220px;
-    height: 220px;
-    background-size: 100%;
-    position: absolute;
-    border: none;
-}
-
-#splat{
-    margin: 0;
-    width: 500px;
-    height: 500px;
-    background-size: 100%;
-    border: none;
-}
-
-#items-list {
-    background-color: lightpink;
-    margin: auto;
-    height: fit-content;
-}
-
-.sect_label{
-    font-size: x-large;
-}
 .background-lower{ 
     background: url(../images/paint_splatter3.png) no-repeat top left fixed; 
     -webkit-background-size: cover;
@@ -43,6 +7,86 @@
     text-align: center;
     vertical-align: baseline;
   }
+
+.avatar-section{
+background-color: white;
+}
+
+#avatar {
+    background-size: 100%;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    padding: 0px;
+    position:relative;
+    /* border: 1px solid black; */
+}
+#face{
+    margin: 140px;
+    margin-top: 180px;
+    width: 220px;
+    height: 220px;
+    background-size: 100%;
+    position: absolute;
+    border: none;
+}
+
+#throw{
+    margin: 0;
+    width: 500px;
+    height: 500px;
+    background-size: 100%;
+    border: none;
+    position: absolute;
+    /* background-color: rgba(100, 149, 237,.3); */
+}
+
+#splat{
+    margin: 0;
+    width: 500px;
+    height: 500px;
+    background-size: 100%;
+    border: none;
+    position: absolute;
+}
+
+/*===========
+ ITEMS 
+===========*/
+#items-list {
+    margin: auto;
+    height: fit-content;
+    text-align: center;
+    margin: auto;
+}
+
+.sect_label{
+    font-family: 'Rancho', cursive;
+    font-size: xx-large;
+}
+
+.select-item{
+    padding: 0px;
+    margin: auto;
+    background-color: rgba(255,255,255, .8);
+    border: 1px black solid;
+    min-width: 5%;
+    max-width: 10%;
+    min-height: 5%;
+    max-height: 10%;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.50)
+}
+
+.progress-bar{
+    margin: 0;
+    width: 15%;
+}
+
+
+
+
+
 
 #speech-bubble{
     max-width: 30%;
@@ -92,24 +136,7 @@
     margin-right: 0px;
 }
 
-.select-item{
-    padding: 0px;
-    margin: auto;
-}
 
-#avatar {
-    background-size: 100%;
-    width: 500px;
-    height: 500px;
-    margin: auto;
-    padding: 0px;
-    border: none;
-}
-
-.battle-ground{
-    /* background-color: blanchedalmond; */
-    display: flex;
-}
 
 .nav-bar {
     margin: 0;

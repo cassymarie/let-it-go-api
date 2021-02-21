@@ -20,6 +20,7 @@ class Item{
         Item.all.push(this)
         this.element = document.createElement('div')
     }
+
 }
 
 // ------------------------------------------------------------------
@@ -36,7 +37,7 @@ function getItems(){
             ele.className = 'col-sm select-item'
             ele.innerHTML = `<img src="src/images/items/${i.base_imageUrl}" class="item-thumbnail" />`
             ele.addEventListener('click', throwItem)
-            ele.addEventListener('mouseover', getNervous)
+            // ele.addEventListener('mouseover', getNervous)
             // ele.addEventListener('mouseout', expressionLevel)
             items.appendChild(ele)
         })
@@ -48,6 +49,8 @@ function getItems(){
 // EVENTS 
 // ------------------------------------------------------------------
 function throwItem(e){
+
+    // debugger
     let itemId = parseInt(e.target.parentElement.id)
     selectedItem = Item.all.find(x => x.id === itemId)
 
@@ -56,26 +59,41 @@ function throwItem(e){
 }
 
 function throwEvent(){
-    
-    // thrown_item.style.backgroundImage = `url(src/images/items/${selectedItem.base_imageUrl})`
-    thrown_item.className = `animate__animated animate__backInRight`
-    thrown_item.style.display = 'block'
+    throwedItem.style.display = 'block'
+    throwedItem.style.backgroundImage = `url(src/images/items/${selectedItem.throw_imageUrl})`
+    throwedItem.className = `animate__animated animate__backInRight`
+    throwedItem.style.display = 'block'
 }
 
 function explodeItem(){
-    // thrown_item.style.backgroundImage = `url(src/images/items/${selectedItem.splat_imageUrl})`
+    throwedItem.style.display = 'none'
+    itemSplat.innerHTML = `<img src="src/images/items/${selectedItem.splat_imageUrl}" />`
+    itemSplat.className = 'animate__animated animate__heartBeat'//"gettinInYoFace "
+    itemSplat.style.display = 'block'
     hitAvatar()
-    
-    thrown_item.className = "gettinInYoFace "
-    setTimeout(clearItem, 2000)
+    setTimeout(showBubble, 500)
+    setTimeout(clearItem, 500)
 }
 
 function clearItem(){
-    thrown_item.style.backgroundImage = ``
-    thrown_item.className = ``
-    thrown_item.style.display = `none`
-    avatar.className = 'animate__animated animate__bounceIn'
+    throwedItem.style.backgroundImage = ``
+    itemSplat.style.backgroundImage = ``
+    throwedItem.className = ``
+    itemSplat.className = ``
+    itemSplat.style.display = `none`
+    avatar.className = 'animate__animated animate__rubberBand'
+    setTimeout(clearBubble,5000)
+    
 }
+
+const clearBubble = function(){
+    speechBubble.className = ''
+    speechBubble.style.display = 'none'}
+
+const showBubble = function(){
+    speechBubble.className = 'animate__animated animate__tada'
+    speechBubble.style.display = 'block'}
+
 
 function hitAvatar(){
     
