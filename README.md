@@ -2,6 +2,9 @@
 
 In order to demonstrate my proficiency with what I've learned about web development with JavaScript, I am creating this SPA to show my *skillz*!?!
 
+## Installation
+
+
 ## Techincal Requirements
 
 - [X] The application must be an HTML, CSS, and JavaScript frontend with a Rails API backend. All interactions between the client and the server must be handled asynchronously (AJAX) and use JSON as the communication format.
@@ -36,6 +39,3 @@ In order to demonstrate my proficiency with what I've learned about web developm
 - items: index, show
 - expressions: show
 
-
-**Stretch Goals
-- [ ] Create localStorage for User

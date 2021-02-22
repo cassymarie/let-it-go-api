@@ -1,7 +1,6 @@
 'use strict'
 const base_url = 'http://localhost:3000/'
 
-
 // ------------------------------------------------------------------
 // OBJECT 
 // ------------------------------------------------------------------
@@ -55,6 +54,7 @@ class Avatar{
         polaroid_image.style.backgroundImage = `url(src/images/characters/${this.image})`
         polaroid_expression.style.backgroundImage = `url(${this.initialFaceSrc()})`
         polaroid_saying.innerHTML = `
+        <div class="knockout-title">Knockout Phrase</div>
         <div class="knockout-saying">${this.knockout_phrase}</div>`
         btn_selectAvatar.innerHTML = `Select <br> ${viewingAvatar.name}`
     }
@@ -96,8 +96,6 @@ class Avatar{
     renderImage(){
         avatar.style.backgroundImage = `url(src/images/characters/${this.image})`
         avatarFace.style.backgroundImage = `url(${this.initialFaceSrc()})`
-        // avatar.parentElement.style.display = 'block'
-        // getFace('happy')
     }
 
     randomSaying(){
@@ -106,7 +104,8 @@ class Avatar{
     }
 
     initialFaceSrc(){
-        return `src/images/expressions/${this.face_id}/angry/${this.initialPic}.png`
+        let pic = this.myExpressions().find(x => x.title === this.initialPic)
+        return `src/images/expressions/${this.face_id}/${pic.category}/${pic.imageUrl}`
     }
 
     myExpressions(){
@@ -162,8 +161,8 @@ function selectAvatar(e){
 }
 
 function chooseAvatar(){
-    selectedAvatar = viewingAvatar
-    getItems()
+    if (selectedAvatar === ''){selectedAvatar = viewingAvatar}
+    change_character.style.display = 'block'
     avatarConfig.style.display = 'none'
     selectedAvatar.renderImage()
     pageBody.className = 'background-lower'

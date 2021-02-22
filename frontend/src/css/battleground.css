@@ -137,23 +137,3 @@ background-color: white;
 }
 
 
-
-.nav-bar {
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.nav-btn{
-    margin: 0;
-    width: fit-content;
-    height: fit-content;
-    font-size: 20px;
-    background-color: turquoise;
-}
-
-.nav-title{
-    text-align: center;
-    margin: auto;
-    font-size: 40px;
-}

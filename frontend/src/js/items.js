@@ -37,8 +37,7 @@ function getItems(){
             ele.className = 'col-sm select-item'
             ele.innerHTML = `<img src="src/images/items/${i.base_imageUrl}" class="item-thumbnail" />`
             ele.addEventListener('click', throwItem)
-            // ele.addEventListener('mouseover', getNervous)
-            // ele.addEventListener('mouseout', expressionLevel)
+            ele.addEventListener('mouseover', clearBubble )
             items.appendChild(ele)
         })
 
@@ -71,24 +70,24 @@ function explodeItem(){
     itemSplat.className = 'animate__animated animate__heartBeat'//"gettinInYoFace "
     itemSplat.style.display = 'block'
     hitAvatar()
-    setTimeout(showBubble, 500)
     setTimeout(clearItem, 500)
 }
 
 function clearItem(){
     throwedItem.style.backgroundImage = ``
+    expressionLevel()
     itemSplat.style.backgroundImage = ``
     throwedItem.className = ``
     itemSplat.className = ``
     itemSplat.style.display = `none`
     avatar.className = 'animate__animated animate__rubberBand'
-    setTimeout(clearBubble,5000)
-    
 }
 
 const clearBubble = function(){
     speechBubble.className = ''
-    speechBubble.style.display = 'none'}
+    speechBubble.style.display = 'none'
+
+}
 
 const showBubble = function(){
     speechBubble.className = 'animate__animated animate__tada'
@@ -100,17 +99,22 @@ function hitAvatar(){
     selectedAvatar.damage += selectedItem.damage   
 
     if (selectedAvatar.damage >= 50){
-        saying.value = selectedAvatar.knockout_phrase
+        itemSection.style.display = 'none'
+        saying.textContent = selectedAvatar.knockout_phrase
         progressBar.innerHTML = `
         <div class="progress-bar" role="progressbar" style="width:100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50"></div>
     `   
         executeInterval = true
+        showBubble()
         startCrying
+
 
     } else {
         saying.textContent = selectedAvatar.randomSaying()
         progressBar.innerHTML = `
             <div class="progress-bar" role="progressbar" style="width: ${(selectedAvatar.damage/50)*100}%" aria-valuenow="${selectedAvatar.damage}" aria-valuemin="0" aria-valuemax="50"></div>
         `
+        showBubble()
     }
+    
 }

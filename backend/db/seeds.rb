@@ -2,23 +2,25 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 
-face1 = Face.create(name: "That Person", initial: 'angry')
-face2 = Face.create(name: "Big Eyed Bubba", initial: 'angry')
-face3 = Face.create(name: "Tweety", initial: 'angry')
-face4 = Face.create(name: "Lil Fella", initial: 'angry')
+face1 = Face.create(name: "That Person", initial: 'smug')
+face2 = Face.create(name: "Big Eyed Bubba", initial: 'confused')
+face3 = Face.create(name: "Tweety", initial: 'pissed')
+face4 = Face.create(name: "Lil Fella", initial: 'curious')
 
-frankie = Character.create(title: 'sinatra', imageUrl: "sinatra.png", face_id: 3)
-frankie.sayings << Saying.create(phrase: "flash[:error]='You have no right to be here!'")
+frankie = Character.create(title: 'sinatra', imageUrl: "sinatra.png", face_id: 1)
+frankie.sayings << Saying.create(phrase: "flash[:error]='You have not defeated me'")
 frankie.sayings << Saying.create(phrase: "<= nil")
 frankie.sayings << Saying.create(phrase: "Hello World") 
+frankie.sayings << Saying.create(phrase: "puts 'you call that a hit?'") 
+frankie.sayings << Saying.create(phrase: "Damage <= 50 ? 'DEFEATED!':'Still Ticking'") 
 
-ruby = Character.create(title: 'ruby', imageUrl: "ruby.png", face_id: 1)
+ruby = Character.create(title: 'ruby', imageUrl: "ruby.png", face_id: 4)
 ruby.sayings << Saying.create(phrase: "NameError: undefined local variable or method")
 ruby.sayings << Saying.create(phrase: "SyntaxError: unexpected keyword_end, expecting ‘}’")
 ruby.sayings << Saying.create(phrase: "ArgumentError: wrong number of arguments (given 1, expected 0)")
 ruby.sayings << Saying.create(phrase: "FatalError: unexpected everything")
 
-java = Character.create(title: 'javascript', imageUrl: "javascript.png", face_id: 4)
+java = Character.create(title: 'javascript', imageUrl: "javascript.png", face_id: 2)
 java.sayings << Saying.create(phrase: "Uncaught TypeError: Cannot read property")
 java.sayings << Saying.create(phrase: "(unknown): Script error")
 java.sayings << Saying.create(phrase: "undefined") 
@@ -27,19 +29,22 @@ java.sayings << Saying.create(phrase: "ReferenceError: event is not defined")
 
 monster = Character.create(title: 'monster', imageUrl: "monster.png", face_id: 2)
 monster.sayings << Saying.create(phrase: "I need a cookie")
-monster.sayings << Saying.create(phrase: "AAARRRRHHHHGGGGHHH!!!!!")
+monster.sayings << Saying.create(phrase: "Get in my belly")
+monster.sayings << Saying.create(phrase: "AAARRRRGGGGHHH!!!!!")
 monster.sayings << Saying.create(phrase: "I'm gonna hide under your bed tonight!") 
 
-nancy = Character.create(title: 'know-it-all', imageUrl: "know_it_all.png", face_id: 3)
+nancy = Character.create(title: 'know-it-all Nancy', imageUrl: "know_it_all.png", face_id: 4)
 nancy.sayings << Saying.create(phrase: "Do you have a permit for that?")
 nancy.sayings << Saying.create(phrase: "I'm filming you, this is illegal!")
 nancy.sayings << Saying.create(phrase: "I'm calling the manager!")
-nancy.sayings << Saying.create(phrase: "Let me see your id!")
+nancy.sayings << Saying.create(phrase: "Do you live here? Let me see your id!")
+nancy.sayings << Saying.create(phrase: "Excuse me, but you can't put that there.")
 
-ronald = Character.create(title: 'politician', imageUrl: "politician.png", face_id: 2)
+ronald = Character.create(title: 'politician', imageUrl: "politician.png", face_id: 3)
 ronald.sayings << Saying.create(phrase: "There is nobody better than me!")
+ronald.sayings << Saying.create(phrase: "Incase you were wondering, I'm kinda a big deal.")
 ronald.sayings << Saying.create(phrase: "I'm the smartest person EVER!")
-ronald.sayings << Saying.create(phrase: "You're a Loser!")
+ronald.sayings << Saying.create(phrase: "Look at me! No one can take a hit like I can!")
 
 
 list = [

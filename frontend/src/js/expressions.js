@@ -43,41 +43,38 @@ function getExpressions(){
     })
 }
 
-
-
 const getFace = function(description) {
     let arr = selectedAvatar.myExpressions()
     let pic = arr.find(x => x.title === description)
-    debugger
     avatarFace.style.backgroundImage = `url(src/images/expressions/${pic.face_id}/${pic.category}/${pic.imageUrl})`
   }
 
-const resetFace = function(){
-    getFace('happy')
-}
-
-const scaredFace = function() {
-    getFace('nervous')
+const randoFace = function(cat){
+    let list = selectedAvatar.myExpressions().filter(x => x.category === cat)
+    let randoFace = list[randomNumber(list.length)].title
+    getFace(randoFace)
 }
 
 let startCrying = setInterval(() => {if (executeInterval){cry()}}, 1000)
 
 function cry(){
-    if (timer === 12){
+    clearItem()
+    if (timer === 10){
         executeInterval = false
         timer = 0
         clearInterval(startCrying)
+        clearBubble()
         avatar.className = 'animate__animated animate__bounceOut'
-
+        setTimeout(endBattle, 1000)
     }
 
-    if (timer < 3){
+    if (timer < 2){
         if (timer % 2 == 0){ getFace('quiver_1') } 
         else { getFace('quiver_2') }} else 
-    if (timer >= 3 && timer < 7 ){
+    if (timer >= 2 && timer < 6 ){
         if (timer % 2 == 0){ getFace('tears_1') } 
         else { getFace('tears_2') }} else 
-    if (timer >= 7 && timer < 12){
+    if (timer >= 6 && timer < 10){
         if (timer % 2 == 0){ getFace('cry_1') } 
         else { getFace('cry_2') }
     }
@@ -87,17 +84,11 @@ function cry(){
 function expressionLevel(){
     let rage = selectedAvatar.damage
 
-    if (rage <= 4){ getFace('happy') } else
-    if (rage < 10){ getFace('wink') } else
-    if (rage < 15){ getFace('tired') } else    
-    if (rage < 20){ getFace('nervous') } else    
-    if (rage < 25){ getFace('surprised') } else    
-    if (rage < 30){ getFace('angry') } else
-    if (rage < 35){ getFace('scream') } else  
-    if (rage < 40){ getFace('mad') } else  
-    if (rage < 45){ getFace('rage') } else
-    if (rage >= 45){ getFace('scream big') } else
-    { getFace('confused')}
+    if (rage < 8){ randoFace('happy') } else
+    if (rage >= 8 && rage < 16){ randoFace('taunt') } else    
+    if (rage >= 16 && rage < 25){ randoFace('nervous') } else    
+    if (rage >= 25 && rage < 35){ randoFace('stunned') } else    
+    if (rage >= 35){ randoFace('angry') }
 }
 
 

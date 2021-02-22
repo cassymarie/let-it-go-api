@@ -2,6 +2,7 @@
 
 const pageBody = document.querySelector('#page-body')
 const signin = document.querySelector('#signin_form')
+const itemSection = document.querySelector('.items-section')
 const navBar = document.querySelector('.nav-bar')
 const btn_signin = document.querySelector('#btn-signin')
 const startup = document.querySelector('.startup')
@@ -18,6 +19,7 @@ const polaroid_expression = document.querySelector('.polaroid-expression')
 const polaroid_saying = document.querySelector('.polaroid-knockout')
 const btn_selectAvatar = document.querySelector('#select-avatar')
 const items = document.querySelector('#items-list')
+
 const battleground = document.querySelector('.battle-ground')
 const saying = document.querySelector('#sayings-here')
 const avatar = document.querySelector('#avatar')
@@ -31,7 +33,7 @@ const speechBubble = document.querySelector('#speech-bubble')
 const throwedItem = document.querySelector('#throw')
 const itemSplat = document.querySelector('#splat')
 const face = document.querySelector('#expressions')
-const testing = document.querySelector('.testing')
+const ending = document.querySelector('.play-again')
 
 let hoverAvatar = ''
 let viewingAvatar = ''
@@ -39,17 +41,15 @@ let selectedAvatar = ''
 let selectedItem = ''
 let currUser = ''
 
-// testing.addEventListener('click',headshaking)
-
 // Document Load
 document.addEventListener("DOMContentLoaded", () => {
-    // getAvatars()
-    // getItems()
     getExpressions()
+    getItems()
 })
 
 btn_signin.addEventListener('click', handleSigninClick)
 btn_selectAvatar.addEventListener('click', chooseAvatar)
+change_character.addEventListener('click', showAvatars)
 usersAvatars.addEventListener('mouseover', hideDirections)
 
 function randomNumber(max){
@@ -64,4 +64,29 @@ function hideDirections(){
 function showDirections(){
     avatarDirections.style.display = 'block'
     avatarProfile.style.display = 'none'
+}
+
+function endBattle(){
+    avatar.className = ''
+    itemSection.style.display = 'block'
+    avatarProfile.style.display = 'none'
+    battleground.style.display = 'none'
+    progressBar.innerHTML = `
+        <div class="progress-bar" role="progressbar" style="width:100%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div>`
+
+    showDirections()
+    ending.style.display = 'block'
+    ending.querySelector('#btn-play-again').addEventListener('click', playAgain)
+    ending.querySelector('#play-change').addEventListener('click', showAvatars)
+    ending.querySelector('#sign-out').addEventListener('click', signout)
+}
+
+function playAgain(){
+    selectedAvatar.damage = 0
+    chooseAvatar()
+}
+
+function signout(){
+    currUser = ''
+    location.reload()
 }

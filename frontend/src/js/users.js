@@ -48,10 +48,13 @@ function handleSigninClick(e){
 
 // Displays the div:battleground
 function showAvatars(){
+    showDirections()
+    battleground.style.display = 'none'
+    change_character.style.display = 'none'
     pageBody.className = 'background-drip'
     startup.style.display = 'none'
     avatarConfig.style.display = 'flex'
     usersAvatars.style.display = 'block'
     avatarProfile.style.display = 'none'
-    navBar.style.display = 'none'
+    ending.style.display = 'none'
 }

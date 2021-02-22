@@ -86,7 +86,6 @@
 }
 
 .polaroid-avatar{
-    background-image: url('../images/characters/politician.png');
     background-size: 100%;
     border: 1px solid black;
     width: 400px;
@@ -99,7 +98,6 @@
 }
 
 .polaroid-expression{
-    background-image: url('../images/expressions/4/angry/displeased.png');
     background-size: 100%;
     width: 200px;
     height: 200px;
@@ -112,7 +110,7 @@
     font-family: 'Rancho', cursive;
     text-align: center;
     font-size: 30px;
-    min-height: 50px;
+    min-height: 75px;
     max-height: fit-content;
     overflow: scroll;
 }
@@ -126,7 +124,7 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 3px 10px;
     position: absolute;
-    margin: -20px -5px;
+    margin: -25px -2px;
 }
 
 /* =================

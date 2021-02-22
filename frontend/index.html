@@ -78,10 +78,8 @@
 
    <!-- 'Battleground: Avatar & edit / Items ' --> 
     <div class="battle-ground" style="display: none;">  
-        <div class="nav-bar"  style="display: flex">
-            <button id='change-avatar' class='nav-btn'>Change Character</button>
-                <div class='nav-title'>Let it go on <strong>This Guy!</strong></div>
-        </div>
+        <button id='change-avatar' class='nav-btn'>Change Character</button>
+
         <!-- Selected Avatar Container --> 
         <div class="avatar-section"> 
             <div id="speech-bubble"  style="display: none;">
@@ -98,10 +96,10 @@
                 <div id="face" style="display: block;">
                     <!-- FACE -->
                 </div>
-                <div id="throw" style="">
+                <div id="throw">
                     <!-- THROW -->
                 </div>
-                <div id="splat" style="">
+                <div id="splat">
                     <!-- SPLAT -->
                 </div>
             </div>
@@ -121,6 +119,13 @@
 
     </div> <!-- End of Battleground --> 
 
+    <div class="play-again" style="display: none;">
+        <div style="display: flex;">
+            <btn class="done animate__animated animate__wobble" id="btn-play-again"> Play Again ? </btn>
+            <btn class="done  animate__animated animate__wobble" id="play-change"> Change Avatar </btn>
+        </div>
+        <btn id="sign-out"> Sign Out </btn>
+    </div>
     <!-- <button class="testing">Testing</button> <!-- Comment out: testing only  -->
 
     <!-- api javascript -->
