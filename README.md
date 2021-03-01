@@ -29,5 +29,4 @@ Let-it-go Api is a Javascript SPA.  This applicaiton was made with the intent to
 ## Contributing
 
 Expression images have been purchased through `istockphoto.com` photos
-
 Animation was produced using [Animate.css](https://animate.style/)
