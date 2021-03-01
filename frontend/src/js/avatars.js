@@ -92,7 +92,6 @@ class Avatar{
         })
     }
 
-    // Render Selected Character to 'Battleground' - show/hide respective div's
     renderImage(){
         avatar.style.backgroundImage = `url(src/images/characters/${this.image})`
         avatarFace.style.backgroundImage = `url(${this.initialFaceSrc()})`
@@ -127,7 +126,7 @@ function getAvatars(){
     })
 }
 
-// - Update /Characters/:id
+// - Update /Avatar/:id
 function updateAvatar(myAvatar){
     let configObj = {
     method: "PATCH",
@@ -178,9 +177,7 @@ function showAvatarPic(e){
     hoverAvatar.updatePolaroid()
 }
 
-// show edit section / hide item selection
 function showEditAvatar(){
-
     viewingAvatar.editPolaroid()
 }
 

@@ -48,11 +48,8 @@ function getItems(){
 // EVENTS 
 // ------------------------------------------------------------------
 function throwItem(e){
-
-    // debugger
     let itemId = parseInt(e.target.parentElement.id)
     selectedItem = Item.all.find(x => x.id === itemId)
-
     throwEvent()
     setTimeout(explodeItem, 750);
 }
@@ -67,7 +64,7 @@ function throwEvent(){
 function explodeItem(){
     throwedItem.style.display = 'none'
     itemSplat.innerHTML = `<img src="src/images/items/${selectedItem.splat_imageUrl}" />`
-    itemSplat.className = 'animate__animated animate__heartBeat'//"gettinInYoFace "
+    itemSplat.className = 'animate__animated animate__heartBeat'
     itemSplat.style.display = 'block'
     hitAvatar()
     setTimeout(clearItem, 500)
@@ -86,13 +83,12 @@ function clearItem(){
 const clearBubble = function(){
     speechBubble.className = ''
     speechBubble.style.display = 'none'
-
 }
 
 const showBubble = function(){
     speechBubble.className = 'animate__animated animate__tada'
-    speechBubble.style.display = 'block'}
-
+    speechBubble.style.display = 'block'
+}
 
 function hitAvatar(){
     

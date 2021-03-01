@@ -43,6 +43,9 @@ function getExpressions(){
     })
 }
 
+// ------------------------------------------------------------------
+// FACE/EXPRESSION IMAGES & CRYING
+// ------------------------------------------------------------------
 const getFace = function(description) {
     let arr = selectedAvatar.myExpressions()
     let pic = arr.find(x => x.title === description)

@@ -46,7 +46,6 @@ function handleSigninClick(e){
     }
 }
 
-// Displays the div:battleground
 function showAvatars(){
     showDirections()
     battleground.style.display = 'none'

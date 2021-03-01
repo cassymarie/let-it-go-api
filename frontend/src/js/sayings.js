@@ -58,8 +58,8 @@ function deleteSaying(saying){
 }
 
 // ------------------------------------------------------------------
-// EVENTS 
-// ------------------------------------------------------------------ EDIT SAYINGS EVENTS
+// EDIT SAYINGS EVENTS 
+// ------------------------------------------------------------------ 
 // - (Click) Saying List Item
 function handleSayingClick(){
 
@@ -113,5 +113,4 @@ function handleAddSaying(e){
     let addSaying = {phrase: newPhrase.value, avatar_id: viewingAvatar.id}
     createSaying(addSaying)
 }
-//------------------------------------
-// -- EVENTS : ANIMATION
+
