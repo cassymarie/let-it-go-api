@@ -151,6 +151,17 @@ fetch(`${base_url}avatars/${myAvatar.id}`, configObj)
 // ------------------------------------------------------------------
 // (Click) to Select Avatar
 // - fetch data / render
+const search = document.querySelector('#search')
+search.addEventListener('keyup', handleSearch)
+
+function handleSearch(e){
+    let val = e.target.value.toLowerCase()
+
+    let found = Avatar.all.filter(x => x.name.toLowerCase().includes(val))
+    // debugger
+    found.forEach(x => x.attachToSelectionList())
+}
+
 function selectAvatar(e){
     hoverAvatar = ''
     let avatarId = parseInt(e.target.id)
