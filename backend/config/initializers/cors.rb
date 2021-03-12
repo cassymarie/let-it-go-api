@@ -7,7 +7,8 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'
+    # make sure that this does not have a ending backslash
+    origins 'https://wizardly-lamarr-90ba94.netlify.app' 
 
     resource '*',
       headers: :any,
