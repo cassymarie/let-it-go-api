@@ -79,8 +79,14 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# production:
+#   <<: *default
+#   database: let_it_go_api_production
+#   username: let_it_go_api
+#   password: <%= ENV['LET_IT_GO_API_DATABASE_PASSWORD'] %>
+
 production:
-  <<: *default
-  database: let_it_go_api_production
-  username: let_it_go_api
-  password: <%= ENV['LET_IT_GO_API_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  
